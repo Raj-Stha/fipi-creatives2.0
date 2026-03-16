@@ -15,7 +15,7 @@ const steps = [
     id: "branding",
     title: "Business Branding",
     icon: Rocket,
-    color: "from-fipi-purple to-blue-600",
+    color: "from-primary to-blue-600",
     description:
       "We build foundations that last by uncovering your core identity and crafting a visual language that resonates.",
     subSteps: [
@@ -41,7 +41,7 @@ const steps = [
     id: "social",
     title: "Social Media",
     icon: Share2,
-    color: "from-pink-600 to-fipi-purple",
+    color: "from-pink-600 to-primary",
     description:
       "Data-driven strategies to foster real connections and amplify your reach across all digital platforms.",
     subSteps: [
@@ -67,7 +67,7 @@ const steps = [
     id: "seo",
     title: "SEO Optimization",
     icon: Search,
-    color: "from-fipi-green to-emerald-600",
+    color: "from-primary to-emerald-600",
     description:
       "Technical excellence and high-intent visibility to build domain authority and drive organic growth.",
     subSteps: [
@@ -94,7 +94,7 @@ const steps = [
 const TextReveal = ({ text, className, delay = 0 }) => {
   const words = text.split(" ");
   return (
-    <span className={`inline-flex flex-wrap ${className}`}>
+    <span className={`inline-flex flex-wrap text-black ${className}`}>
       {words.map((word, i) => (
         <span
           key={i}
@@ -157,30 +157,18 @@ export default function GrowthStrategy() {
   };
 
   return (
-    <section
-      id="growth"
-      ref={containerRef}
-      className="bg-fipi-dark relative h-[180vh]"
-    >
-      <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
+    <section id="growth" ref={containerRef} className="bg-gray-50 relative">
+      <div className="sticky top-0 pt-16 pb-20 w-full flex flex-col overflow-hidden">
         {/* Section Header - Fixed at top of sticky container */}
-        <div className="max-w-7xl mx-auto px-6 pt-20 pb-10 w-full relative z-30">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-fipi-green font-mono text-sm tracking-[0.6em] uppercase block mb-4"
-          >
-            The Growth Engine
-          </motion.span>
+        <div className="max-w-7xl mx-auto px-6  w-full relative z-30">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-display font-bold tracking-tighter text-white"
+            className="text-6xl font-display mb-12 font-bold  text-black"
           >
-            Scaling <span className="text-fipi-purple italic">Success</span>
+            Scaling <span className="text-primary italic">Success</span>
           </motion.h2>
         </div>
 
@@ -202,26 +190,26 @@ export default function GrowthStrategy() {
               />
 
               <div className="max-w-7xl mx-auto px-6 w-full">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-12 items-start">
                   {/* Left Side: Title & Description */}
                   <div className="space-y-10">
                     <div className="flex items-center gap-6">
                       <motion.div
                         layoutId="step-icon"
-                        className={`p-5 rounded-3xl bg-gradient-to-br ${steps[currentStep].color} shadow-2xl shrink-0`}
+                        className={`p-4 rounded-md bg-gradient-to-br ${steps[currentStep].color} shadow-2xl shrink-0`}
                       >
                         {React.createElement(steps[currentStep].icon, {
-                          className: "w-8 h-8 text-white",
+                          className: "w-5 h-5 text-white",
                         })}
                       </motion.div>
                       <div className="min-w-0">
                         <motion.span
                           layoutId="step-number"
-                          className="text-fipi-green font-mono text-xs tracking-[0.4em] uppercase block mb-1"
+                          className="text-primary font-mono text-xs tracking-[0.3em] uppercase block "
                         >
                           Pillar 0{currentStep + 1}
                         </motion.span>
-                        <h3 className="text-4xl md:text-6xl font-display font-bold text-white tracking-tight">
+                        <h3 className="text-4xl  font-display font-bold text-white tracking-tight">
                           <TextReveal text={steps[currentStep].title} />
                         </h3>
                       </div>
@@ -238,10 +226,10 @@ export default function GrowthStrategy() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.35 }}
-                      className="flex items-center gap-3 text-fipi-green font-bold group/btn pt-4"
+                      className="flex items-center gap-3 text-primary font-bold group/btn pt-4"
                     >
                       Explore Strategy
-                      <div className="w-10 h-10 rounded-full border border-fipi-green/30 flex items-center justify-center group-hover/btn:bg-fipi-green group-hover/btn:text-fipi-dark transition-all duration-300">
+                      <div className="w-10 h-10 rounded-full border border-primary/30 flex items-center justify-center group-hover/btn:bg-primary group-hover/btn:text-fipi-dark transition-all duration-300">
                         <ArrowRight className="w-5 h-5" />
                       </div>
                     </motion.button>
@@ -295,7 +283,7 @@ export default function GrowthStrategy() {
             <div
               key={i}
               className={`h-1.5 rounded-full transition-all duration-500 ${
-                currentStep === i ? "w-12 bg-fipi-green" : "w-3 bg-white/20"
+                currentStep === i ? "w-12 bg-primary" : "w-3 bg-white/20"
               }`}
             />
           ))}
