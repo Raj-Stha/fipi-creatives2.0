@@ -21,11 +21,11 @@ const navItems = [
         href: "/about/who-we-are",
       },
       {
-        title: "Our Leadership",
+        title: "Our Team",
         description:
-          "Meet the visionaries leading our creative and strategic teams.",
-        image: "https://picsum.photos/seed/leader/600/400",
-        href: "/about/leadership",
+          "Meet the talented people behind our creative and strategic work.",
+        image: "https://picsum.photos/seed/ourteam/600/400",
+        href: "/about/team",
       },
       {
         title: "Our Network",
