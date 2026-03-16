@@ -37,7 +37,7 @@ export default function PackageTabs({ service }) {
             <button
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}
-              className="relative px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors duration-200 outline-none"
+              className="relative px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors duration-200 outline-none cursor-pointer"
               style={{ color: isActive ? "#fff" : "#9ca3af" }}
             >
               {isActive && (
@@ -71,10 +71,7 @@ export default function PackageTabs({ service }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.28, delay: i * 0.06 }}
             >
-              <PackageCard
-                pkg={pkg}
-                serviceSlug={service.slug}
-              />
+              <PackageCard pkg={pkg} serviceSlug={service.slug} />
             </motion.div>
           ))}
         </motion.div>
