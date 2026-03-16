@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import WorkCard from "./WorkCard";
 import { PRIMARY } from "@/data/services";
@@ -14,16 +14,32 @@ export default function WorksTabs({ works, categories }) {
   const categoryParam = searchParams.get("category");
 
   const [activeTab, setActiveTab] = useState("all");
+  const isManualTabChange = useRef(false);
 
   useEffect(() => {
     if (categoryParam && categories.some((c) => c.id === categoryParam)) {
       setActiveTab(categoryParam);
+      
+      // If we didn't just click a tab manually, smooth scroll to this section
+      if (!isManualTabChange.current) {
+        setTimeout(() => {
+          const element = document.getElementById("projects");
+          if (element) {
+            const y = element.getBoundingClientRect().top + window.scrollY - 80; // 80px offset for the fixed header
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        }, 100);
+      }
     } else {
       setActiveTab("all");
     }
+    
+    // Reset manual override after effect runs
+    isManualTabChange.current = false;
   }, [categoryParam, categories]);
 
   const handleTabChange = (catId) => {
+    isManualTabChange.current = true;
     setActiveTab(catId);
     
     // Update the URL without scrolling
