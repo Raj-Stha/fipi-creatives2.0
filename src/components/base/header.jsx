@@ -82,44 +82,44 @@ const navItems = [
   },
   {
     name: "Our Work",
-    href: "/work",
+    href: "/our-works",
     megaMenu: [
       {
         title: "Branding & Identity",
         description:
           "Strategic brand identity and visual storytelling projects.",
         image: "https://picsum.photos/seed/branding/600/400",
-        href: "/work/branding",
+        href: "/our-works/branding",
       },
       {
         title: "Web & Digital",
         description: "High-performance websites and digital experiences.",
         image: "https://picsum.photos/seed/digital/600/400",
-        href: "/work/web-development",
+        href: "/our-works/web-development",
       },
       {
         title: "App Development",
         description: "Innovative mobile and web application solutions.",
         image: "https://picsum.photos/seed/app-dev/600/400",
-        href: "/work/app-development",
+        href: "/our-works/app-development",
       },
       {
         title: "Digital Marketing",
         description: "Data-driven campaigns and growth strategies.",
         image: "https://picsum.photos/seed/marketing/600/400",
-        href: "/work/digital-marketing",
+        href: "/our-works/digital-marketing",
       },
       {
         title: "Photography",
         description: "Professional commercial and urban photography.",
         image: "https://picsum.photos/seed/photo/600/400",
-        href: "/work/photography",
+        href: "/our-works/photography",
       },
       {
         title: "All Projects",
         description: "Explore our complete portfolio of creative works.",
         image: "https://picsum.photos/seed/projects/600/400",
-        href: "/work",
+        href: "/our-works",
       },
     ],
   },
