@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-import { ArrowLeft, ExternalLink, Image as ImageIcon, Layout, Type, Palette } from "lucide-react";
+import { ExternalLink, Image as ImageIcon, Layout, Type, Palette, ChevronRight } from "lucide-react";
 import { PRIMARY, PRIMARY_LIGHT, SECONDARY } from "@/data/services";
 
 export default function RebrandFipiDetail({ work }) {
@@ -23,13 +23,18 @@ export default function RebrandFipiDetail({ work }) {
         </div>
         
         <div className="max-w-7xl mx-auto px-6 w-full relative z-10 pb-16">
-          <Link
-            href="/our-works"
-            className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-8 text-sm font-semibold uppercase tracking-widest"
+          <motion.nav
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
+            className="flex items-center gap-1.5 text-sm mb-10 text-white/70"
           >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Portfolio
-          </Link>
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-white/50" />
+            <Link href="/our-works" className="hover:text-white transition-colors">Our Works</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-white/50" />
+            <span className="font-semibold text-white truncate max-w-[200px] md:max-w-xs">{work.title}</span>
+          </motion.nav>
           
           <div className="max-w-4xl">
             <motion.div

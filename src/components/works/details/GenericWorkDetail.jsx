@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-import { ArrowLeft, ExternalLink, Calendar, Briefcase, Tag } from "lucide-react";
+import { ExternalLink, Calendar, Briefcase, Tag, ChevronRight } from "lucide-react";
 import { PRIMARY, PRIMARY_LIGHT } from "@/data/services";
 
 export default function GenericWorkDetail({ work }) {
@@ -16,13 +16,18 @@ export default function GenericWorkDetail({ work }) {
         />
         
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-          <Link
-            href="/our-works"
-            className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-900 transition-colors mb-8 text-sm font-semibold uppercase tracking-widest"
+          <motion.nav
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
+            className="flex items-center justify-center gap-1.5 text-sm mb-10 text-gray-400"
           >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Portfolio
-          </Link>
+            <Link href="/" className="hover:text-gray-600 transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-gray-300" />
+            <Link href="/our-works" className="hover:text-gray-600 transition-colors">Our Works</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-gray-300" />
+            <span className="font-semibold text-gray-700 truncate max-w-[200px] md:max-w-xs">{work.title}</span>
+          </motion.nav>
           
           <motion.div
             initial={{ opacity: 0, y: 16 }}
