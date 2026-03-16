@@ -150,13 +150,13 @@ export default function Header() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ease-in-out ${
         isSolid
-          ? "bg-white shadow-[0_4px_30px_rgba(0,0,0,0.06)] border-b border-gray-100 py-3 md:py-4"
-          : "bg-transparent py-5 md:py-6"
+          ? "bg-white  py-3 md:py-4"
+          : "bg-transparent text-white py-5 md:py-6"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto  flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center group">
           <div className="relative h-10 w-32 md:w-30 flex items-center overflow-visible">
@@ -165,14 +165,16 @@ export default function Header() {
               alt="Fipi Creatives Logo"
               width={200}
               height={80}
-              className={`object-contain object-left scale-[1.35] md:scale-[1.5] origin-left transition-all duration-500 drop-shadow-sm group-hover:opacity-80 ${isSolid ? "brightness-100" : ""}`}
+              className={`${!isSolid && "invert brightness-0"} object-contain object-left scale-[1.35] md:scale-[1.5] origin-left transition-all duration-500 drop-shadow-sm group-hover:opacity-80 ${isSolid ? "brightness-100" : ""}`}
               priority
             />
           </div>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-7 lg:gap-8">
+        <div
+          className={` ${!isSolid ? "rounded-md  bg-white/20  backdrop-blur-3xl" : ""}hidden md:flex items-center  px-4 py-3 gap-7 lg:gap-8`}
+        >
           {navItems.map((item) => (
             <div
               key={item.name}
@@ -183,7 +185,7 @@ export default function Header() {
               {item.href.includes("#") ? (
                 <a
                   href={item.href}
-                  className={`text-sm font-medium transition-colors duration-300 flex items-center gap-1.5 py-2 ${
+                  className={`text-sm font-medium transition-colors  flex items-center gap-1.5 py-2 ${
                     activeDropdown === item.name
                       ? "text-fipi-green"
                       : isSolid
@@ -194,14 +196,14 @@ export default function Header() {
                   {item.name}
                   {item.megaMenu && (
                     <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === item.name ? "rotate-180" : ""}`}
+                      className={`w-3.5 h-3.5 transition-transform  ${activeDropdown === item.name ? "rotate-180" : ""}`}
                     />
                   )}
                 </a>
               ) : (
                 <Link
                   href={item.href}
-                  className={`text-sm font-medium transition-colors duration-300 flex items-center gap-1.5 py-2 ${
+                  className={`text-sm font-medium transition-colors  flex items-center gap-1.5 py-2 ${
                     activeDropdown === item.name
                       ? "text-fipi-green"
                       : isSolid
@@ -212,21 +214,21 @@ export default function Header() {
                   {item.name}
                   {item.megaMenu && (
                     <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === item.name ? "rotate-180" : ""}`}
+                      className={`w-3.5 h-3.5 transition-transform  ${activeDropdown === item.name ? "rotate-180" : ""}`}
                     />
                   )}
                 </Link>
               )}
             </div>
           ))}
-          <div
+          {/* <div
             className={`flex items-center gap-5 ml-2 pl-6 border-l transition-colors duration-500 ${
               isSolid ? "border-gray-200" : "border-white/20"
             }`}
           >
             <Link
               href="/login"
-              className={`text-sm font-medium transition-colors duration-300 ${
+              className={`text-sm font-medium transition-colors  ${
                 isSolid
                   ? "text-gray-700 hover:text-fipi-green"
                   : "text-fipi-light/90 hover:text-fipi-green"
@@ -240,12 +242,12 @@ export default function Header() {
             >
               Register
             </Link>
-          </div>
+          </div> */}
         </div>
 
         {/* Mobile Menu Toggle */}
         <button
-          className={`md:hidden p-2 -mr-2 transition-colors duration-300 ${
+          className={`md:hidden p-2 -mr-2 transition-colors  ${
             isSolid ? "text-gray-900" : "text-fipi-light"
           }`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -268,17 +270,17 @@ export default function Header() {
             transition={{ duration: 0.2, ease: "easeInOut" }}
             onMouseEnter={() => setActiveDropdown(activeDropdown)}
             onMouseLeave={() => setActiveDropdown(null)}
-            className="absolute top-full left-1/2 -translate-x-1/2 w-full max-w-7xl bg-fipi-dark border-y shadow-[0_20px_40px_rgba(0,0,0,0.06)] overflow-hidden"
+            className="absolute backdrop-blur-3xl rounded-md top-full left-1/2 -translate-x-1/2 w-full max-w-7xl shadow-[0_20px_40px_rgba(0,0,0,0.06)] overflow-hidden"
           >
-            <div className="max-w-7xl mx-auto px-6 py-10">
-              <div className="grid grid-cols-3 gap-8">
+            <div className="max-w-7xl mx-auto px-4 py-4">
+              <div className="grid grid-cols-3 gap-3">
                 {navItems
                   .find((n) => n.name === activeDropdown)
                   ?.megaMenu?.map((subItem) => (
                     <Link
                       key={subItem.title}
                       href={subItem.href}
-                      className="group relative block aspect-[16/10] overflow-hidden rounded-xl bg-gray-50 shadow-sm hover:shadow-xl transition-all duration-500"
+                      className="group relative block aspect-[16/10] overflow-hidden rounded-md bg-gray-50 shadow-sm hover:shadow-xl transition-all duration-500"
                     >
                       <img
                         src={subItem.image}
@@ -293,7 +295,7 @@ export default function Header() {
                         <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-1.5 group-hover:text-fipi-green transition-colors relative z-20">
                           {subItem.title}
                         </h3>
-                        <p className="text-white/80 text-sm md:text-base line-clamp-2 mb-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-3 group-hover:translate-y-0 relative z-20">
+                        <p className="text-white/80 line-clamp-1 text-sm md:text-base  mb-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-3 group-hover:translate-y-0 relative z-20">
                           {subItem.description}
                         </p>
                         <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-gray-900 transform -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 relative z-20 shadow-md">
@@ -355,7 +357,7 @@ export default function Header() {
                       {item.megaMenu && (
                         <div className="p-2 -mr-2">
                           <ChevronDown
-                            className={`w-5 h-5 transition-transform duration-300 ${activeDropdown === item.name ? "rotate-180 text-fipi-green" : "text-gray-400"}`}
+                            className={`w-5 h-5 transition-transform  ${activeDropdown === item.name ? "rotate-180 text-fipi-green" : "text-gray-400"}`}
                           />
                         </div>
                       )}
