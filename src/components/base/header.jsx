@@ -89,31 +89,31 @@ const navItems = [
         description:
           "Strategic brand identity and visual storytelling projects.",
         image: "https://picsum.photos/seed/branding/600/400",
-        href: "/our-works/branding",
+        href: "/our-works?category=branding",
       },
       {
         title: "Web & Digital",
         description: "High-performance websites and digital experiences.",
         image: "https://picsum.photos/seed/digital/600/400",
-        href: "/our-works/web-development",
+        href: "/our-works?category=web-digital",
       },
       {
         title: "App Development",
         description: "Innovative mobile and web application solutions.",
         image: "https://picsum.photos/seed/app-dev/600/400",
-        href: "/our-works/app-development",
+        href: "/our-works?category=app-development",
       },
       {
         title: "Digital Marketing",
         description: "Data-driven campaigns and growth strategies.",
         image: "https://picsum.photos/seed/marketing/600/400",
-        href: "/our-works/digital-marketing",
+        href: "/our-works?category=digital-marketing",
       },
       {
         title: "Photography",
         description: "Professional commercial and urban photography.",
         image: "https://picsum.photos/seed/photo/600/400",
-        href: "/our-works/photography",
+        href: "/our-works?category=photography",
       },
       {
         title: "All Projects",
