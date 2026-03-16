@@ -1,293 +1,163 @@
 "use client";
-import React, { useRef, useState } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useMotionValueEvent,
-  AnimatePresence,
-  useSpring,
-} from "motion/react";
-import { Rocket, Share2, Search, ArrowRight } from "lucide-react";
 
-const steps = [
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
+const services = [
   {
-    id: "branding",
-    title: "Business Branding",
-    icon: Rocket,
-    color: "from-primary to-blue-600",
-    description:
-      "We build foundations that last by uncovering your core identity and crafting a visual language that resonates.",
-    subSteps: [
-      {
-        subtitle: "Uncover Your Core Identity",
-        description:
-          "We begin with deep brand discovery, uncovering your core values and unique selling propositions.",
-        image:
-          "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=80",
-        tag: "Discovery",
-      },
-      {
-        subtitle: "Craft a Visual Language",
-        description:
-          "Our design team crafts a cohesive visual identity, including logos, typography, and color palettes.",
-        image:
-          "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=81",
-        tag: "Design",
-      },
-    ],
+    id: 1,
+    title: "Branding",
+    desc: "Build a powerful brand identity.",
+    longDesc:
+      "We craft compelling brand systems that position your business for recognition and trust, ensuring your voice echoes across all touchpoints.",
+    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop",
+    align: "left",
+    color: "from-fuchsia-600/40 to-green-600/40",
+    badgeColor: "bg-fuchsia-500",
   },
   {
-    id: "social",
-    title: "Social Media",
-    icon: Share2,
-    color: "from-pink-600 to-primary",
-    description:
-      "Data-driven strategies to foster real connections and amplify your reach across all digital platforms.",
-    subSteps: [
-      {
-        subtitle: "Data-Driven Content",
-        description:
-          "We develop a content strategy tailored to each platform, ensuring your brand stays relevant.",
-        image:
-          "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80",
-        tag: "Strategy",
-      },
-      {
-        subtitle: "Foster Real Connections",
-        description:
-          "Our community managers turn followers into brand advocates through active engagement.",
-        image:
-          "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
-        tag: "Engagement",
-      },
-    ],
+    id: 2,
+    title: "Social",
+    desc: "Connect with audiences digitally.",
+    longDesc:
+      "Our social strategies create meaningful engagement, transforming passive followers into loyal brand advocates and active customers.",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop",
+    align: "right",
+    color: "from-green-600/40 to-fuchsia-600/40",
+    badgeColor: "bg-green-500",
   },
   {
-    id: "seo",
-    title: "SEO Optimization",
-    icon: Search,
-    color: "from-primary to-emerald-600",
-    description:
-      "Technical excellence and high-intent visibility to build domain authority and drive organic growth.",
-    subSteps: [
-      {
-        subtitle: "Technical Excellence",
-        description:
-          "Comprehensive technical audits to ensure your website is perfectly optimized for search engines.",
-        image:
-          "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=81",
-        tag: "Audit",
-      },
-      {
-        subtitle: "High-Intent Visibility",
-        description:
-          "Optimizing your content with high-intent keywords for the searches that matter most.",
-        image:
-          "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=1200&q=80",
-        tag: "Keywords",
-      },
-    ],
+    id: 3,
+    title: "SEO",
+    desc: "Increase visibility in search.",
+    longDesc:
+      "Advanced technical SEO and content optimization structurally designed to drive sustainable, long-term organic growth for your platform.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+    align: "left",
+    color: "from-fuchsia-600/40 to-green-600/40",
+    badgeColor: "bg-fuchsia-500",
   },
 ];
 
-const TextReveal = ({ text, className, delay = 0 }) => {
-  const words = text.split(" ");
-  return (
-    <span className={`inline-flex flex-wrap text-black ${className}`}>
-      {words.map((word, i) => (
-        <span
-          key={i}
-          className="inline-block overflow-hidden mr-[0.25em] last:mr-0 py-[0.1em]"
-        >
-          <motion.span
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{
-              duration: 0.3,
-              delay: delay + i * 0.015,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="inline-block"
-          >
-            {word}
-          </motion.span>
-        </span>
-      ))}
-    </span>
-  );
-};
-
-export default function GrowthStrategy() {
+export default function GrowthServices() {
   const containerRef = useRef(null);
+
+  // Track the scroll progress of the entire section
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"],
+    offset: ["start start", "end end"]
   });
 
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
-  // Calculate which step is active based on scroll progress
-  const activeIndex = useTransform(
-    smoothProgress,
-    [0, 0.33, 0.66, 1],
-    [0, 1, 2, 2],
-  );
-  const [currentStep, setCurrentStep] = useState(0);
-
-  useMotionValueEvent(activeIndex, "change", (latest) => {
-    const rounded = Math.round(latest);
-    if (rounded !== currentStep) {
-      setCurrentStep(rounded);
-    }
-  });
-
-  // Alternating entry directions: Even index from bottom, Odd index from top
-  const getDirectionalProps = (index) => {
-    const fromBottom = index % 2 === 0;
-    return {
-      initial: { opacity: 0, y: fromBottom ? 60 : -60 },
-      animate: { opacity: 1, y: 0 },
-      exit: { opacity: 0, y: fromBottom ? -60 : 60 },
-    };
-  };
+  // Calculate dynamic properties based on scroll position
+  // 0 -> 0.2: Transition from full focus to dim
+  // 0.2 -> 0.8: Stay dim while cards scroll over
+  // 0.8 -> 1.0: Transition back to full focus as the last card leaves the viewport (due to pb-[120vh])
+  const bgOpacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [1, 0.15, 0.15, 1]);
+  const bgScale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [1, 0.9, 0.9, 1]);
+  const bgBlur = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], ["blur(0px)", "blur(16px)", "blur(16px)", "blur(0px)"]);
 
   return (
-    <section id="growth" ref={containerRef} className="bg-gray-50 relative">
-      <div className="sticky top-0 pt-16 pb-20 w-full flex flex-col overflow-hidden">
-        {/* Section Header - Fixed at top of sticky container */}
-        <div className="max-w-7xl mx-auto px-6  w-full relative z-30">
-          <motion.h2
+    <section ref={containerRef} className="relative bg-[#050505] text-white">
+      {/* Sticky Background Section */}
+      <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden z-0">
+        <div className="absolute inset-0 bg-[#050505] z-0"></div>
+        
+        {/* Glow behind the title for style */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 rounded-full blur-[150px] pointer-events-none z-10"></div>
+        
+        <motion.div 
+          style={{ opacity: bgOpacity, scale: bgScale, filter: bgBlur }}
+          className="relative z-20 text-center px-4 max-w-6xl mx-auto flex flex-col items-center justify-center mt-[-5vh]"
+        >
+          {/* Using Fuchsia and Green textured gradient for the title */}
+          <motion.h2 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="text-6xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-fuchsia-800 via-fuchsia-500 to-green-500 mb-6 leading-none pb-4"
+          >
+            Scaling Success
+          </motion.h2>
+          {/* Subtitle also gets a beautiful thematic tint */}
+          <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-6xl font-display mb-12 font-bold  text-black"
+            transition={{ duration: 1, delay: 0.2 }}
+            className="text-xl md:text-3xl font-light leading-relaxed mx-auto max-w-3xl text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-200 to-green-200"
           >
-            Scaling <span className="text-primary italic">Success</span>
-          </motion.h2>
-        </div>
+            Strategic growth solutions designed to elevate brands and accelerate business performance.
+          </motion.p>
+        </motion.div>
+      </div>
 
-        {/* Content Area */}
-        <div className="flex-1 relative flex items-center">
-          <AnimatePresence mode="popLayout" initial={false}>
-            <motion.div
-              key={currentStep}
-              {...getDirectionalProps(currentStep)}
-              transition={{
-                duration: 0.3,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="w-full"
-            >
-              {/* Background Glow */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${steps[currentStep].color} opacity-[0.05] pointer-events-none blur-[120px]`}
-              />
+      {/* Cards Scrollable Content */}
+      <div className="relative z-10 max-w-[90rem] mx-auto px-6 pt-[30vh] pb-[120vh] space-y-20 md:space-y-32">
+        {services.map((service, i) => (
+          <motion.div
+            key={service.id}
+            initial={{ opacity: 0, y: 150 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className={`flex w-full ${service.align === "right" ? "justify-end" : "justify-start"}`}
+          >
+            {/* Decreased width: lg:w-[65%] xl:w-[60%] */}
+            <div className={`relative w-full lg:w-[65%] xl:w-[60%] group`}>
+              
+              {/* Outer Glow */}
+              <div className={`absolute -inset-4 bg-gradient-to-br ${service.color} rounded-[2rem] blur-2xl opacity-40 transition-opacity duration-700 group-hover:opacity-70`}></div>
+              
+              {/* Decreased aspect ratio for a smaller, sleeker container */}
+              <div className="relative w-full aspect-[4/3] md:aspect-[16/9] rounded-[2rem] overflow-hidden border border-white/10 bg-neutral-900 shadow-2xl flex items-end p-4 md:p-6 lg:p-8">
+                {/* Image Background */}
+                <div className="absolute inset-0 z-0">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10 z-10 pointer-events-none"></div>
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
+                  />
+                </div>
 
-              <div className="max-w-7xl mx-auto px-6 w-full">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-12 items-start">
-                  {/* Left Side: Title & Description */}
-                  <div className="space-y-10">
-                    <div className="flex items-center gap-6">
-                      <motion.div
-                        layoutId="step-icon"
-                        className={`p-4 rounded-md bg-gradient-to-br ${steps[currentStep].color} shadow-2xl shrink-0`}
-                      >
-                        {React.createElement(steps[currentStep].icon, {
-                          className: "w-5 h-5 text-white",
-                        })}
-                      </motion.div>
-                      <div className="min-w-0">
-                        <motion.span
-                          layoutId="step-number"
-                          className="text-primary font-mono text-xs tracking-[0.3em] uppercase block "
-                        >
-                          Pillar 0{currentStep + 1}
-                        </motion.span>
-                        <h3 className="text-4xl  font-display font-bold text-white tracking-tight">
-                          <TextReveal text={steps[currentStep].title} />
-                        </h3>
+                {/* Content Inside Container (Glassmorphic) */}
+                <div className="relative z-20 w-full md:w-[90%] lg:w-[85%] p-6 md:p-8 rounded-[1.5rem] bg-black/40 border border-white/[0.15] backdrop-blur-xl shadow-2xl transition-all duration-500 overflow-hidden">
+                  
+                  {/* Subtle internal gradient accent */}
+                  <div className={`absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br ${service.color} opacity-20 rounded-full blur-[60px] pointer-events-none transition-opacity duration-700`}></div>
+                  
+                  <div className="relative z-10 flex flex-col items-start">
+                    <div className="flex flex-wrap items-center gap-4 mb-4 md:mb-6">
+                      <div className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white font-mono text-base shadow-inner">
+                        0{service.id}
+                      </div>
+
+                      <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 py-2 px-5 rounded-full shadow-lg">
+                        <span className={`w-2 h-2 rounded-full ${service.badgeColor} shadow-[0_0_12px_rgba(255,255,255,0.6)]`}></span>
+                        <span className="text-white text-xs md:text-sm font-semibold tracking-widest uppercase">
+                          {service.title}
+                        </span>
                       </div>
                     </div>
+                    
+                    <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-white tracking-tight">
+                      {service.title}
+                    </h3>
 
-                    <div className="text-xl text-fipi-light/60 leading-relaxed max-w-xl">
-                      <TextReveal
-                        text={steps[currentStep].description}
-                        delay={0.1}
-                      />
-                    </div>
+                    <p className="text-lg md:text-2xl text-neutral-200 mb-3 md:mb-4 font-medium leading-tight">
+                      {service.desc}
+                    </p>
 
-                    <motion.button
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.35 }}
-                      className="flex items-center gap-3 text-primary font-bold group/btn pt-4"
-                    >
-                      Explore Strategy
-                      <div className="w-10 h-10 rounded-full border border-primary/30 flex items-center justify-center group-hover/btn:bg-primary group-hover/btn:text-fipi-dark transition-all duration-300">
-                        <ArrowRight className="w-5 h-5" />
-                      </div>
-                    </motion.button>
-                  </div>
-
-                  {/* Right Side: Sub Steps */}
-                  <div className="grid sm:grid-cols-2 gap-8">
-                    {steps[currentStep].subSteps.map((sub, idx) => (
-                      <motion.div
-                        key={sub.subtitle}
-                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        transition={{ delay: 0.2 + idx * 0.05, duration: 0.3 }}
-                        className="space-y-4 group"
-                      >
-                        <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10">
-                          <img
-                            src={sub.image}
-                            alt={sub.subtitle}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            referrerPolicy="no-referrer"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-fipi-dark/60 to-transparent" />
-                          <span className="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-bold text-white uppercase tracking-widest">
-                            {sub.tag}
-                          </span>
-                        </div>
-                        <div>
-                          <h4 className="text-lg font-display font-bold text-white mb-2">
-                            <TextReveal
-                              text={sub.subtitle}
-                              delay={0.3 + idx * 0.05}
-                            />
-                          </h4>
-                          <p className="text-sm text-fipi-light/40 leading-relaxed line-clamp-2">
-                            {sub.description}
-                          </p>
-                        </div>
-                      </motion.div>
-                    ))}
+                    <p className="text-sm md:text-lg text-neutral-400 leading-relaxed font-light">
+                      {service.longDesc}
+                    </p>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
 
-        {/* Progress Indicator */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-3 z-30">
-          {steps.map((_, i) => (
-            <div
-              key={i}
-              className={`h-1.5 rounded-full transition-all duration-500 ${
-                currentStep === i ? "w-12 bg-primary" : "w-3 bg-white/20"
-              }`}
-            />
-          ))}
-        </div>
+              </div>
+            </div>
+            
+          </motion.div>
+        ))}
       </div>
     </section>
   );
