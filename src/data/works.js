@@ -8,6 +8,32 @@ export const works = [
     description: "Complete brand transformation for a leading fintech company, including visual identity, tone of voice, and digital guidelines.",
     image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80",
     tags: ["Brand Identity", "Logo Design", "Style Guide"],
+    content: {
+      challenge: "Finova Pay was expanding globally but their existing brand identity felt outdated, localized, and lacked the trust signals required for an enterprise-level financial institution. They needed a complete overhaul that felt modern, secure, and accessible to a global audience.",
+      solution: "We designed a completely new visual system centered around the core concept of 'Seamless Flow'. This included a dynamic new logo, a vibrant yet trustworthy color palette, and bespoke typography. We also developed comprehensive brand guidelines and rolled out the new identity across all digital touchpoints.",
+      results: [
+        { label: "User Trust Score", value: "+45%" },
+        { label: "Brand Recall", value: "82%" },
+        { label: "New Markets", value: "12" },
+        { label: "Awards Won", value: "2" },
+      ],
+      colors: [
+        { hex: "#0F172A", name: "Deep Slate" },
+        { hex: "#3B82F6", name: "Trust Blue" },
+        { hex: "#10B981", name: "Growth Green" },
+        { hex: "#F8FAFC", name: "Clean White" },
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1200&q=80",
+        "https://images.unsplash.com/photo-1616077168079-7e09a677fb2c?w=1200&q=80",
+        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&q=80",
+      ],
+      testimonial: {
+        quote: "The rebrand by FiPi Creatives transformed how our users perceive us. We now look like the global player we actually are. It was an absolute game-changer for our expansion.",
+        author: "Sarah Jenkins",
+        role: "CMO, Finova Pay"
+      }
+    }
   },
   {
     slug: "ecommerce-web-revamp",
