@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { works, workCategories } from "@/data/works";
 import WorksHero from "@/components/works/WorksHero";
 import WorksTabs from "@/components/works/WorksTabs";
@@ -11,7 +12,9 @@ export default function OurWorksPage() {
   return (
     <div className="bg-gray-50 min-h-screen">
       <WorksHero />
-      <WorksTabs works={works} categories={workCategories} />
+      <Suspense fallback={<div className="text-center py-20 text-gray-400 font-medium">Loading works...</div>}>
+        <WorksTabs works={works} categories={workCategories} />
+      </Suspense>
     </div>
   );
 }
