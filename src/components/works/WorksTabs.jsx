@@ -2,12 +2,42 @@
 
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import WorkCard from "./WorkCard";
 import { PRIMARY } from "@/data/services";
 
 export default function WorksTabs({ works, categories }) {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const categoryParam = searchParams.get("category");
+
   const [activeTab, setActiveTab] = useState("all");
+
+  useEffect(() => {
+    if (categoryParam && categories.some((c) => c.id === categoryParam)) {
+      setActiveTab(categoryParam);
+    } else {
+      setActiveTab("all");
+    }
+  }, [categoryParam, categories]);
+
+  const handleTabChange = (catId) => {
+    setActiveTab(catId);
+    
+    // Update the URL without scrolling
+    const current = new URLSearchParams(Array.from(searchParams.entries()));
+    if (catId === "all") {
+      current.delete("category");
+    } else {
+      current.set("category", catId);
+    }
+    
+    const search = current.toString();
+    const query = search ? `?${search}` : "";
+    router.replace(`${pathname}${query}`, { scroll: false });
+  };
 
   const filtered =
     activeTab === "all"
@@ -36,7 +66,7 @@ export default function WorksTabs({ works, categories }) {
           return (
             <button
               key={cat.id}
-              onClick={() => setActiveTab(cat.id)}
+              onClick={() => handleTabChange(cat.id)}
               className="relative px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors duration-200 outline-none"
               style={{ color: isActive ? "#fff" : "#9ca3af" }}
             >
