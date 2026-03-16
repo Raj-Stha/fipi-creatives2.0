@@ -25,7 +25,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="bg-fipi-dark pt-32 pb-12 relative overflow-hidden bg-gray-600 border-t border-white/5"
+      className="bg-black pt-32 pb-12 relative overflow-hidden  "
     >
       {/* Subtle Background Accents */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-fipi-purple/20 to-transparent" />
@@ -41,10 +41,7 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <span className="text-fipi-green font-mono text-[10px] uppercase tracking-[0.4em] mb-6 block">
-                Next Step
-              </span>
-              <h2 className="text-5xl md:text-7xl font-display font-bold mb-10 leading-[0.9] tracking-tighter text-white">
+              <h2 className="text-5xl md:text-6xl font-display font-bold mb-10 leading-[1.1]  text-white">
                 Ready to{" "}
                 <span className="italic font-light text-fipi-purple">
                   evolve
@@ -52,7 +49,7 @@ export default function Footer() {
                 your digital presence?
               </h2>
               <div className="flex flex-wrap gap-4">
-                <button className="bg-white text-fipi-dark px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-fipi-green transition-all duration-300 group">
+                <button className="bg-white text-fipi-dark px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-secondary hover:text-white  cursor-pointer transition-all duration-300 group">
                   Start a Project
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </button>
@@ -69,7 +66,7 @@ export default function Footer() {
           {/* Right Side: Links */}
           <div className="lg:col-span-5 grid grid-cols-2 gap-12">
             <div>
-              <span className="text-white/30 font-mono text-[10px] uppercase tracking-widest mb-8 block">
+              <span className="text-white font-mono text-[16px] uppercase tracking-widest mb-8 block">
                 Navigation
               </span>
               <ul className="space-y-4">
@@ -88,7 +85,7 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <span className="text-white/30 font-mono text-[10px] uppercase tracking-widest mb-8 block">
+              <span className="text-white font-mono text-[16px] uppercase tracking-widest mb-8 block">
                 Connect
               </span>
               <ul className="space-y-4">
@@ -129,7 +126,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-col md:items-end gap-2">
+          {/* <div className="flex flex-col md:items-end gap-2">
             <p className="text-white/30 text-[11px] font-mono uppercase tracking-wider">
               © {year} Fipi Creatives. All rights reserved.
             </p>
@@ -141,11 +138,11 @@ export default function Footer() {
                 Terms
               </a>
             </div>
-          </div>
+          </div> */}
 
           <button
             onClick={scrollToTop}
-            className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300 group"
+            className="w-12 h-12 rounded-full border bg-white/20 border-white flex items-center justify-center text-white hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300 group"
             aria-label="Scroll to top"
           >
             <ChevronUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
