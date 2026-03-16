@@ -44,6 +44,14 @@ export const works = [
     description: "A headless e-commerce build using Next.js and Shopify, increasing conversion rates by 42% in the first quarter.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
     tags: ["Next.js", "E-Commerce", "UI/UX"],
+    liveLink: "https://example-ecostore.com",
+    content: {
+      gallery: [
+        "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&q=80",
+        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80",
+        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&q=80",
+      ]
+    }
   },
   {
     slug: "fitness-app-launch",
@@ -54,6 +62,13 @@ export const works = [
     description: "End-to-end design and development of a fitness tracking mobile application with real-time workout synchronization.",
     image: "https://images.unsplash.com/photo-1526506114883-9118544f8087?w=800&q=80",
     tags: ["React Native", "Mobile App", "Health"],
+    content: {
+      gallery: [
+        "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&q=80",
+        "https://images.unsplash.com/photo-1594882645126-14020914d58d?w=1200&q=80",
+        "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1200&q=80",
+      ]
+    }
   },
   {
     slug: "seo-growth-campaign",
