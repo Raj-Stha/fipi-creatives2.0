@@ -110,7 +110,7 @@ export default function Services() {
   const x = useTransform(scrollYProgress, [0, 1], [0, -totalDistance]);
 
   return (
-    <section id="services" className="relative z-20 bg-[#020202] text-white -mt-[100vh]">
+    <section id="services" className="relative z-20 bg-[#020202] text-white">
 
       {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

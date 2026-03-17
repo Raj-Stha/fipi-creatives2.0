@@ -2,6 +2,7 @@ import Hero from "@/components/home/hero";
 import Stats from "@/components/home/stats";
 import Service from "@/components/home/service";
 import GrowthStrategy from "@/components/home/growth-service";
+import FeaturedWorks from "@/components/home/FeaturedWorks";
 import Testimonials from "@/components/home/testimonial";
 import HomeBlogSection from "@/components/home/HomeBlogSection";
 import CTA from "@/components/home/cta";
@@ -20,6 +21,7 @@ export default function Home() {
 
       <div className="relative z-10 bg-white shadow-[0_-50px_100px_rgba(0,0,0,0.5)]">
         <GrowthStrategy />
+        <FeaturedWorks />
         <Service />
         <TestimonialCarousel />
         {/* <Testimonials /> */}
