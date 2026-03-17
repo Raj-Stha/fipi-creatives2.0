@@ -52,12 +52,11 @@ export default function GrowthServices() {
   // 0 -> 0.2: Transition from full focus to dim
   // 0.2 -> 0.8: Stay dim while cards scroll over
   // 0.8 -> 1.0: Transition back to full focus as the last card leaves the viewport (due to pb-[120vh])
-  const bgOpacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [1, 0.15, 0.15, 1]);
-  const bgScale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [1, 0.9, 0.9, 1]);
-  const bgBlur = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], ["blur(0px)", "blur(16px)", "blur(16px)", "blur(0px)"]);
-
+  const bgOpacity = useTransform(scrollYProgress, [0, 0.2, 0.2, 0.5], [1, 0.8, 0.8, 1]);
+  const bgScale = useTransform(scrollYProgress, [0, 0.2, 0.5, 0.85], [1, 0.25, 0.5, 0.95]);
+  const bgBlur = useTransform(scrollYProgress, [0, 0.2, 0.2, 0.75], ["blur(0px)", "blur(16px)", "blur(16px)", "blur(0px)"]);
   return (
-    <section ref={containerRef} className="relative bg-[#050505]s text-white">
+    <section ref={containerRef} className="sticky  bg-[#050505]s  text-white">
       {/* Sticky Background Section */}
       <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden z-0">
         <div className="absolute inset-0 bg-white/10 z-0"></div>
@@ -67,7 +66,7 @@ export default function GrowthServices() {
         
         <motion.div 
           style={{ opacity: bgOpacity, scale: bgScale, filter: bgBlur }}
-          className="relative z-20 text-center px-4 max-w-6xl mx-auto flex flex-col items-center justify-center mt-[-20vh]"
+          className="relative z-20 text-center px-4 max-w-6xl mx-auto flex flex-col items-center justify-center"
         >
        
           <motion.h2 
@@ -92,14 +91,14 @@ export default function GrowthServices() {
       </div>
 
       {/* Cards Scrollable Content */}
-      <div className="relative z-10 max-w-[90rem] mx-auto px-6 pt-[30vh] pb-[120vh] space-y-20 md:space-y-32">
+      <div className="relative z-10 max-w-[90rem] mx-auto px-6 pt-[10vh] pb-[200vh] space-y-20 md:space-y-32">
         {services.map((service, i) => (
           <motion.div
             key={service.id}
-            initial={{ opacity: 0, y: 150 }}
+            initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className={`flex w-full ${service.align === "right" ? "justify-end" : "justify-start"}`}
           >
             {/* Decreased width: lg:w-[65%] xl:w-[60%] */}
