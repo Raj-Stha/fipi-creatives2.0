@@ -12,7 +12,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="relative py-32 bg-[#050505] overflow-hidden">
+    <section className="relative py-32 bg-white overflow-hidden">
       {/* Premium Dark Mode Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-fuchsia-600/10 rounded-full blur-[150px]"></div>
@@ -33,13 +33,15 @@ export default function Stats() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-5xl md:text-7xl lg:text-[6rem] font-extrabold tracking-tighter leading-tight"
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/60">
-              Proven results
+            <span className="text-fuchsia-800 mr-4">
+              Proven 
+       </span>
+       <span className="text-green-600">
+              Results
             </span>
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 via-indigo-500 to-emerald-400 drop-shadow-[0_0_20px_rgba(217,70,239,0.2)]">
-              that drive growth
-            </span>
+         
+         
+            
           </motion.h2>
         </div>
 
@@ -114,7 +116,7 @@ function StatCard({ stat, index }) {
         Card Container - Premium Dark Glassmorphism
         Glow shadow becomes incredibly prominent on hover, driven by inline CSS var
       */}
-      <div className="relative h-full p-10 rounded-[2.5rem] bg-[#111111]/80 backdrop-blur-xl border border-white/5 
+      <div className="relative h-full p-10 rounded-[0.5rem] bg-white/90 backdrop-blur-xl border border-white/5 
         shadow-[0_10px_30px_rgba(0,0,0,0.5)] 
         transition-all duration-500 ease-out overflow-hidden flex flex-col items-center justify-center text-center
         hover:scale-[1.03] hover:-translate-y-2
@@ -130,10 +132,10 @@ function StatCard({ stat, index }) {
         </div>
 
         {/* Decorative Divider */}
-        <div className={`w-12 h-1.5 rounded-full mb-6 transition-all duration-500 bg-gradient-to-r ${stat.color} opacity-40 group-hover:w-24 group-hover:opacity-100 group-hover:shadow-[0_0_10px_var(--hover-shadow)]`}></div>
+        <div className={`w-12 h-1.5 rounded-full mb-6 transition-all duration-500 bg-green-500 group-hover:w-24 group-hover:opacity-100 group-hover:shadow-[0_0_10px_var(--hover-shadow)]`}></div>
 
         {/* Label */}
-        <p className="text-lg md:text-xl font-bold tracking-wider text-white/70 uppercase relative z-10 group-hover:text-white transition-colors duration-500">
+        <p className="text-lg md:text-xl font-bold tracking-wider text-fuchsia-800 uppercase relative z-10 group-hover:text-green transition-colors duration-500">
           {stat.label}
         </p>
 
