@@ -1,6 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function CTA() {
   return (
@@ -22,9 +23,11 @@ export default function CTA() {
               Join hundreds of successful brands that have transformed their
               digital presence with Fipi Creatives.
             </p>
-            <Button className="bg-primary px-8 py-6 text-md tracking-wider rounded-md  relative ">
-              Get Started Now
-            </Button>
+            <Link href="/contact-us">
+              <Button className="bg-primary px-8 py-6 text-md tracking-wider rounded-md relative cursor-pointer hover:scale-105 transition-transform">
+                Get Started Now
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </section>

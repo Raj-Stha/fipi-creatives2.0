@@ -89,13 +89,13 @@ export default function WorksHero() {
                 View Projects
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <a
-                href="/#contact"
+              <Link
+                href="/contact-us"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold border-2 text-gray-700 hover:border-gray-400 hover:text-gray-900 transition-all duration-300"
                 style={{ borderColor: "#e5e7eb" }}
               >
                 Start a Project
-              </a>
+              </Link>
             </motion.div>
 
             {/* Stats row */}

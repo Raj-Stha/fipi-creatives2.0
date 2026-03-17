@@ -256,7 +256,7 @@ export default function RebrandFipiDetail({ work }) {
           <p className="text-sm font-bold tracking-[0.3em] uppercase text-gray-400 mb-6">Like what you see?</p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-10">Let's build something extraordinary together.</h2>
           <Link
-            href="/#contact"
+            href="/contact-us"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-purple-200 text-lg"
             style={{ backgroundColor: PRIMARY }}
           >

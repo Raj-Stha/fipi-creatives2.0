@@ -89,7 +89,7 @@ export default function PackageTabs({ service }) {
           Not sure which package is right for you?
         </p>
         <Link
-          href="/#contact"
+          href="/contact-us"
           className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-200"
           style={{ backgroundColor: PRIMARY }}
         >
