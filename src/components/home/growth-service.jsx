@@ -57,33 +57,34 @@ export default function GrowthServices() {
   const bgBlur = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], ["blur(0px)", "blur(16px)", "blur(16px)", "blur(0px)"]);
 
   return (
-    <section ref={containerRef} className="relative bg-[#050505] text-white">
+    <section ref={containerRef} className="relative bg-[#050505]s text-white">
       {/* Sticky Background Section */}
       <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden z-0">
-        <div className="absolute inset-0 bg-[#050505] z-0"></div>
+        <div className="absolute inset-0 bg-white/10 z-0"></div>
         
         {/* Glow behind the title for style */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 rounded-full blur-[150px] pointer-events-none z-10"></div>
         
         <motion.div 
           style={{ opacity: bgOpacity, scale: bgScale, filter: bgBlur }}
-          className="relative z-20 text-center px-4 max-w-6xl mx-auto flex flex-col items-center justify-center mt-[-5vh]"
+          className="relative z-20 text-center px-4 max-w-6xl mx-auto flex flex-col items-center justify-center mt-[-20vh]"
         >
-          {/* Using Fuchsia and Green textured gradient for the title */}
+       
           <motion.h2 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="text-6xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-fuchsia-800 via-fuchsia-500 to-green-500 mb-6 leading-none pb-4"
+            className="text-6xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter  mb-6 leading-none pb-4 pr-4"
           >
-            Scaling Success
+               {/* Using Fuchsia and Green textured for the title */}
+            <span className="text-green-600">Scaling</span> <span className="text-fuchsia-800">Success</span>
           </motion.h2>
           {/* Subtitle also gets a beautiful thematic tint */}
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-xl md:text-3xl font-light leading-relaxed mx-auto max-w-3xl text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-200 to-green-200"
+            className="text-xl md:text-3xl font-light leading-relaxed mx-auto max-w-3xl text-black/90"
           >
             Strategic growth solutions designed to elevate brands and accelerate business performance.
           </motion.p>
@@ -105,13 +106,13 @@ export default function GrowthServices() {
             <div className={`relative w-full lg:w-[65%] xl:w-[60%] group`}>
               
               {/* Outer Glow */}
-              <div className={`absolute -inset-4 bg-gradient-to-br ${service.color} rounded-[2rem] blur-2xl opacity-40 transition-opacity duration-700 group-hover:opacity-70`}></div>
+              <div className={`absolute -inset-4 bg-gradient-to-br ${service.color} blur-2xl opacity-40 transition-opacity duration-700 group-hover:opacity-70`}></div>
               
               {/* Decreased aspect ratio for a smaller, sleeker container */}
-              <div className="relative w-full aspect-[4/3] md:aspect-[16/9] rounded-[2rem] overflow-hidden border border-white/10 bg-neutral-900 shadow-2xl flex items-end p-4 md:p-6 lg:p-8">
+              <div className="relative w-full aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-neutral-900 shadow-2xl flex items-end p-4 md:p-6 lg:p-8">
                 {/* Image Background */}
                 <div className="absolute inset-0 z-0">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10 z-10 pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-white/10 z-10 pointer-events-none"></div>
                   <img
                     src={service.image}
                     alt={service.title}
@@ -120,19 +121,19 @@ export default function GrowthServices() {
                 </div>
 
                 {/* Content Inside Container (Glassmorphic) */}
-                <div className="relative z-20 w-full md:w-[90%] lg:w-[85%] p-6 md:p-8 rounded-[1.5rem] bg-black/40 border border-white/[0.15] backdrop-blur-xl shadow-2xl transition-all duration-500 overflow-hidden">
+                <div className="relative z-20 w-full md:w-[90%] lg:w-[85%] p-6 md:p-8 rounded-[0.5rem] bg-black/10 border border-white/[0.15] backdrop-blur-xl shadow-2xl transition-all duration-500 overflow-hidden">
                   
                   {/* Subtle internal gradient accent */}
                   <div className={`absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br ${service.color} opacity-20 rounded-full blur-[60px] pointer-events-none transition-opacity duration-700`}></div>
                   
                   <div className="relative z-10 flex flex-col items-start">
                     <div className="flex flex-wrap items-center gap-4 mb-4 md:mb-6">
-                      <div className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white font-mono text-base shadow-inner">
+                      {/* <div className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white font-mono text-base shadow-inner">
                         0{service.id}
-                      </div>
+                      </div> */}
 
-                      <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 py-2 px-5 rounded-full shadow-lg">
-                        <span className={`w-2 h-2 rounded-full ${service.badgeColor} shadow-[0_0_12px_rgba(255,255,255,0.6)]`}></span>
+                      <div className="flex items-center gap-3 bg-fuchsia-800 backdrop-blur-md border border-white/20 py-2 px-5 rounded-full shadow-lg">
+                        <span className={`w-2 h-2 rounded-full bg-green-600 shadow-[0_0_12px_rgba(255,255,255,0.6)]`}></span>
                         <span className="text-white text-xs md:text-sm font-semibold tracking-widest uppercase">
                           {service.title}
                         </span>
@@ -147,7 +148,7 @@ export default function GrowthServices() {
                       {service.desc}
                     </p>
 
-                    <p className="text-sm md:text-lg text-neutral-400 leading-relaxed font-light">
+                    <p className="text-sm md:text-lg text-white leading-relaxed font-light">
                       {service.longDesc}
                     </p>
                   </div>
