@@ -31,9 +31,9 @@ export default function Stats() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-5xl md:text-7xl lg:text-[6rem] font-extrabold tracking-tighter leading-tight"
+            className="text-5xl md:text-7xl lg:text-[10rem] font-extrabold tracking-tighter leading-tight"
           >
-            <span className="text-fuchsia-800 mr-4">
+            <span className="text-fuchsia-800 mr-6">
               Proven 
        </span>
        <span className="text-green-600">
