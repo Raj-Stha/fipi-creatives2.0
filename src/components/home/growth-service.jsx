@@ -52,10 +52,9 @@ export default function GrowthServices() {
   // 0 -> 0.2: Transition from full focus to dim
   // 0.2 -> 0.8: Stay dim while cards scroll over
   // 0.8 -> 1.0: Transition back to full focus as the last card leaves the viewport (due to pb-[120vh])
-  const bgOpacity = useTransform(scrollYProgress, [0, 0.2, 0.2, 1], [1, 0.5, 0.5, 1]);
-  const bgScale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [1, 0.9, 0.2, 1]);
-  const bgBlur = useTransform(scrollYProgress, [0, 0.2, 0.2, 1], ["blur(0px)", "blur(16px)", "blur(16px)", "blur(0px)"]);
-
+  const bgOpacity = useTransform(scrollYProgress, [0, 0.2, 0.2, 0.5], [1, 0.8, 0.8, 1]);
+  const bgScale = useTransform(scrollYProgress, [0, 0.2, 0.5, 0.85], [1, 0.25, 0.5, 0.95]);
+  const bgBlur = useTransform(scrollYProgress, [0, 0.2, 0.2, 0.75], ["blur(0px)", "blur(16px)", "blur(16px)", "blur(0px)"]);
   return (
     <section ref={containerRef} className="sticky  bg-[#050505]s  text-white">
       {/* Sticky Background Section */}
@@ -92,7 +91,7 @@ export default function GrowthServices() {
       </div>
 
       {/* Cards Scrollable Content */}
-      <div className="relative z-10 max-w-[90rem] mx-auto px-6 pt-[10vh] pb-[120vh] space-y-20 md:space-y-32">
+      <div className="relative z-10 max-w-[90rem] mx-auto px-6 pt-[10vh] pb-[200vh] space-y-20 md:space-y-32">
         {services.map((service, i) => (
           <motion.div
             key={service.id}
