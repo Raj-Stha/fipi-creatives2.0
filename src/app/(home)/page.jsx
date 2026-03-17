@@ -3,9 +3,13 @@ import Stats from "@/components/home/stats";
 import Service from "@/components/home/service";
 import GrowthStrategy from "@/components/home/growth-service";
 import Testimonials from "@/components/home/testimonial";
+import HomeBlogSection from "@/components/home/HomeBlogSection";
 import CTA from "@/components/home/cta";
+import { getAllBlogs } from "@/data/blogs";
 
 export default function Home() {
+  const latestBlogs = getAllBlogs().slice(0, 3);
+
   return (
     <div>
       <Hero />
@@ -18,7 +22,7 @@ export default function Home() {
         <GrowthStrategy />
         <Service />
         <Testimonials />
-
+        <HomeBlogSection blogs={latestBlogs} />
         <CTA />
       </div>
     </div>
