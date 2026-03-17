@@ -12,7 +12,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="relative py-32 bg-white overflow-hidden">
+    <section className="relative py-20 bg-white overflow-hidden">
       {/* Premium Dark Mode Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-fuchsia-600/10 rounded-full blur-[150px]"></div>
