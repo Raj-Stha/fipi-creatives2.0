@@ -12,7 +12,7 @@ export default function CTA() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className=" rounded-[3rem] p-12 md:p-24 text-center border border-white/5 relative overflow-hidden"
+            className=" rounded-[3rem] p-12 md:p-20 text-center border border-white/5 relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 w-full h-full " />
             <h2 className="text-4xl md:text-6xl font-display font-bold mb-8 relative z-10">
