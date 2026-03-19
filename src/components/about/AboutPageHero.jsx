@@ -9,7 +9,7 @@ const PRIMARY_LIGHT = "#7d2c9115";
 
 export default function AboutPageHero({ label, title, titleAccent, subtitle, breadcrumb, image }) {
   return (
-    <section className="relative bg-white pt-28 pb-16 overflow-hidden">
+    <section className="relative bg-white pt-22 pb-16 overflow-hidden">
       {/* Gradient wash */}
       <div
         className="absolute top-0 right-0 w-[55%] h-full pointer-events-none"

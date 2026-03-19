@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Linkedin, Twitter, Instagram } from "lucide-react";
+import { Linkedin, Twitter, Instagram, Timer, TrendingUp, BookOpen, MapPin } from "lucide-react";
 import AboutPageHero from "./AboutPageHero";
 
 const PRIMARY = "#7d2c91";
@@ -37,15 +37,13 @@ export default function OurTeamPage({ teamMembers, departments }) {
       />
 
       {/* ── Featured cards (leadership) ── */}
-      <section className="bg-white py-20 px-6">
+      <section className="bg-white py-12 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 text-center">
-            <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: PRIMARY }}>
-              Founding Members
+            <p className="text-4xl md:text-5xl xl:text-[3.5rem] font-bold uppercase mb-3" style={{ color: PRIMARY }}>
+              who started it all
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              The people who started it all
-            </h2>
+           
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -56,10 +54,10 @@ export default function OurTeamPage({ teamMembers, departments }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group relative bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl hover:border-gray-200 transition-all duration-400 overflow-hidden"
+                className="group relative bg-white rounded-sm border border-gray-100 shadow-sm hover:shadow-2xl hover:border-gray-200 transition-all duration-400 overflow-hidden"
               >
                 {/* Photo */}
-                <div className="relative h-72 overflow-hidden">
+                <div className="relative h-60 overflow-hidden">
                   <img
                     src={member.avatar}
                     alt={member.name}
@@ -104,15 +102,14 @@ export default function OurTeamPage({ teamMembers, departments }) {
       </section>
 
       {/* ── Full team grid ── */}
-      <section className="bg-gray-50 py-20 px-6">
+      <section className="bg-gray-50 py-12 px-6">
         <div className="max-w-7xl mx-auto">
           {/* Header + filter */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div>
-              <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: PRIMARY }}>
+              <p className="text-4xl md:text-5xl xl:text-[3.5rem] font-bold uppercase mb-2" style={{ color: PRIMARY }}>
                 The Full Roster
               </p>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900">All Team Members</h2>
             </div>
 
             <div className="flex flex-wrap gap-2">
@@ -152,7 +149,7 @@ export default function OurTeamPage({ teamMembers, departments }) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-gray-200 transition-all duration-300 overflow-hidden"
+                  className="group bg-white rounded-sm border border-gray-100 shadow-sm hover:shadow-lg hover:border-gray-200 transition-all duration-300 overflow-hidden"
                 >
                   {/* Photo */}
                   <div className="relative h-52 overflow-hidden">
@@ -203,69 +200,132 @@ export default function OurTeamPage({ teamMembers, departments }) {
       </section>
 
       {/* ── Culture strip ── */}
-      <section className="bg-white py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Images */}
-            <div className="grid grid-cols-2 gap-4">
-              {["fipiculture1", "fipiculture2", "fipiculture3", "fipiculture4"].map((seed, i) => (
-                <motion.div
-                  key={seed}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className={`overflow-hidden rounded-2xl shadow-md ${i === 0 ? "col-span-2 aspect-[2/1]" : "aspect-square"}`}
-                >
-                  <img
-                    src={`https://picsum.photos/seed/${seed}/800/600`}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Text */}
+      <section className="bg-white py-12 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 mb-20">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            {/* Text Content */}
             <motion.div
-              initial={{ opacity: 0, x: 24 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.55 }}
+              transition={{ duration: 0.7 }}
             >
-              <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: PRIMARY }}>
-                Life at FiPi
+              <p 
+                className="text-4xl md:text-5xl xl:text-[3.5rem] font-bold uppercase mb-8 leading-[1.1]" 
+                style={{ color: PRIMARY }}
+              >
+                Life at <span className="text-gray-900 block">FiPi </span>
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-snug mb-6">
-                A culture built on{" "}
-                <span style={{ color: PRIMARY }}>curiosity</span> and collaboration
-              </h2>
-              <p className="text-gray-600 leading-relaxed mb-5">
-                We work hard and we celebrate harder. At FiPi, we believe the best creative work emerges from an environment of psychological safety, respect, and genuine camaraderie.
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                From design jams and strategy sprints to team retreats and skill-sharing sessions — we invest in our people as much as we invest in our clients.
-              </p>
-
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { label: "Average Tenure", value: "2.8 yrs" },
-                  { label: "Internal Promotions", value: "60%" },
-                  { label: "Learning Budget / yr", value: "NPR 50K" },
-                  { label: "Remote-friendly", value: "100%" },
-                ].map((item) => (
-                  <div
-                    key={item.label}
-                    className="rounded-2xl p-4 border border-gray-100"
-                    style={{ backgroundColor: PRIMARY_LIGHT }}
-                  >
-                    <p className="text-xl font-bold text-gray-900">{item.value}</p>
-                    <p className="text-xs text-gray-500 mt-0.5">{item.label}</p>
-                  </div>
-                ))}
+              
+              <div className="space-y-6 text-gray-600">
+                <p className="text-lg leading-relaxed">
+                  We work hard and we celebrate harder. At FiPi, we believe the best creative work emerges from an environment of psychological safety, respect, and genuine camaraderie.
+                </p>
+                <p className="text-base leading-relaxed opacity-80">
+                  From design jams and strategy sprints to team retreats and skill-sharing sessions — we invest in our people as much as we invest in our clients.
+                </p>
               </div>
             </motion.div>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-6">
+              {[
+                { label: "Average Tenure", value: "2.8 YRS", icon: Timer },
+                { label: "Growth Ratio", value: "60%", icon: TrendingUp },
+                { label: "Learning Budget", value: "NPR 50K", icon: BookOpen },
+                { label: "Remote-Ready", value: "100%", icon: MapPin },
+              ].map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="group relative bg-white rounded-sm p-8 border border-gray-100 hover:border-transparent transition-all duration-500 overflow-hidden shadow-sm hover:shadow-2xl"
+                  >
+                    {/* Hover Background Accent */}
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500"
+                      style={{ backgroundColor: PRIMARY }}
+                    />
+                    
+                    {/* Icon Container */}
+                    <div 
+                      className="w-12 h-12 rounded-lg flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg"
+                      style={{ backgroundColor: PRIMARY_LIGHT }}
+                    >
+                      <Icon className="w-6 h-6" style={{ color: PRIMARY }} />
+                    </div>
+
+                    <div className="relative z-10">
+                      <p className="text-3xl font-black text-gray-900 mb-2 tracking-tight group-hover:translate-x-1 transition-transform duration-300">
+                        {item.value}
+                      </p>
+                      <div className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: PRIMARY }} />
+                        <p className="text-[11px] font-bold tracking-[0.15em] text-green-500 uppercase leading-none">
+                          {item.label}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Subtle Corner Decoration */}
+                    <div 
+                      className="absolute -bottom-4 -right-4 w-16 h-16 rounded-full opacity-0 group-hover:opacity-10 transition-all duration-500 blur-xl scale-50 group-hover:scale-150"
+                      style={{ backgroundColor: PRIMARY }}
+                    />
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
+        </div>
+
+        {/* ── Infinite Looping Images ── */}
+        <div className="relative mt-8">
+          <div className="flex overflow-hidden group">
+            <motion.div 
+              className="flex gap-4 px-4 whitespace-nowrap"
+              animate={{ x: [0, -1920] }}
+              transition={{ 
+                duration: 40, 
+                repeat: Infinity, 
+                ease: "linear" 
+              }}
+            >
+              {[...Array(12)].map((_, i) => (
+                <div 
+                  key={i} 
+                  className="w-72 h-48 md:w-96 md:h-64 rounded-xl overflow-hidden flex-shrink-0 shadow-lg border border-gray-100"
+                >
+                  <img
+                    src={`https://picsum.photos/seed/culture-loop-${i % 8}/800/600`}
+                    alt=""
+                    className="w-full h-full object-cover grayscale-[0.5] hover:grayscale-0 transition-all duration-500 hover:scale-110"
+                  />
+                </div>
+              ))}
+              {/* Duplicate for seamless loop */}
+              {[...Array(12)].map((_, i) => (
+                <div 
+                  key={`dup-${i}`} 
+                  className="w-72 h-48 md:w-96 md:h-64 rounded-xl overflow-hidden flex-shrink-0 shadow-lg border border-gray-100"
+                >
+                  <img
+                    src={`https://picsum.photos/seed/culture-loop-${i % 8}/800/600`}
+                    alt=""
+                    className="w-full h-full object-cover grayscale-[0.5] hover:grayscale-0 transition-all duration-500 hover:scale-110"
+                  />
+                </div>
+              ))}
+            </motion.div>
+          </div>
+          
+          {/* Subtle side fades */}
+          <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
         </div>
       </section>
     </>
