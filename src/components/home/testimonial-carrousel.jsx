@@ -107,14 +107,11 @@ export default function TestimonialCarousel() {
     );
 
   return (
-    <section className="w-full py-14  bg-white">
+    <section className="w-full py-12  bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="grid mb-8 items-end justify-end grid-cols-2">
           <div className="">
-            <p className="text-sm font-semibold text-gray-500 uppercase mb-2">
-              CLIENT SUCCESS STORIES
-            </p>
             <h2 className="text-4xl font-bold text-gray-900">
               Delivering scalable solutions with real impact
             </h2>
