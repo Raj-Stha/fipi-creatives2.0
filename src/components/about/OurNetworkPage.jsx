@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-import { MapPin, ArrowRight, Globe2 } from "lucide-react";
+import { MapPin, ArrowRight, Globe2, Briefcase, Zap, Star, Users } from "lucide-react";
 import AboutPageHero from "./AboutPageHero";
 
 const PRIMARY = "#7d2c91";
@@ -24,90 +24,144 @@ export default function OurNetworkPage({ partnerCategories, networkStats, global
 
       {/* ── Stats row ── */}
       <section
-        className="py-16 px-6"
-        style={{ background: `linear-gradient(135deg, ${PRIMARY}08 0%, ${SECONDARY}08 100%)` }}
+        className="py-20 px-6 relative overflow-hidden"
+        style={{ background: `linear-gradient(135deg, ${PRIMARY}0a 0%, #ffffff 100%)` }}
       >
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {networkStats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center"
-              >
-                <p className="text-4xl font-bold text-gray-900 mb-1">{stat.value}</p>
-                <p className="text-sm text-gray-400">{stat.label}</p>
-              </motion.div>
-            ))}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {networkStats.map((stat, i) => {
+              let Icon = Briefcase;
+              const label = stat.label.toLowerCase();
+              if (label.includes("presence") || label.includes("countr") || label.includes("global")) Icon = Globe2;
+              if (label.includes("partner") || label.includes("strategic")) Icon = Users;
+              if (label.includes("influencer") || label.includes("network")) Icon = Zap;
+              if (label.includes("creative") || label.includes("collab")) Icon = Star;
+              
+              return (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  className="group relative bg-white rounded-sm p-12 flex flex-col items-center justify-center text-center border border-gray-100/50 shadow-sm hover:shadow-2xl hover:border-transparent transition-all duration-700 overflow-hidden"
+                >
+                  {/* Background Icon (Large & Transparent) */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+                    <Icon 
+                      className="w-40 h-40 opacity-[0.03] group-hover:opacity-[0.06] transform -rotate-12 group-hover:rotate-0 transition-all duration-1000 group-hover:scale-150" 
+                      style={{ color: PRIMARY }} 
+                    />
+                  </div>
+
+                  {/* Top Accent Line */}
+                  <div 
+                    className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-1 rounded-b-full opacity-0 group-hover:opacity-100 transition-all duration-500"
+                    style={{ backgroundColor: PRIMARY }}
+                  />
+
+                  {/* Centered Content */}
+                  <div className="relative z-10">
+                    <motion.p 
+                      className="text-5xl md:text-6xl font-black mb-3 tracking-tighter"
+                      style={{ color: PRIMARY }}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      {stat.value}
+                    </motion.p>
+                    <p className="text-[12px] font-bold tracking-[0.2em] text-green-500 uppercase opacity-90 group-hover:text-green-900 transition-colors duration-300">
+                      {stat.label}
+                    </p>
+                  </div>
+
+                  {/* Corner Accent */}
+                  <div 
+                    className="absolute -bottom-6 -right-6 w-20 h-20 rounded-full opacity-[0.04] blur-2xl transition-all duration-700 group-hover:scale-150"
+                    style={{ backgroundColor: PRIMARY }}
+                  />
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* ── Partner categories ── */}
-      <section className="bg-white py-20 px-6">
+      <section className="bg-white py-12 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-14">
-            <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: PRIMARY }}>
+          <div className="text-center mb-20">
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl xl:text-[3.5rem] font-bold uppercase mb-6 leading-tight" 
+              style={{ color: PRIMARY }}
+            >
               Partner Ecosystem
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our strategic partnerships
-            </h2>
-            <p className="text-gray-500 max-w-xl mx-auto">
-              Every relationship in our network is handpicked for quality, reliability, and complementary capability.
-            </p>
+            </motion.p>
+          
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed"
+            >
+              Every relationship in our network is handpicked for quality, reliability, and complementary capability, ensuring our clients receive world-class solutions.
+            </motion.p>
           </div>
 
-          <div className="space-y-20">
+          <div className="space-y-32">
             {partnerCategories.map((cat, catIdx) => (
               <motion.div
                 key={cat.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.55 }}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${catIdx % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+                className={`grid lg:grid-cols-2 gap-16 xl:gap-24 items-center ${catIdx % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
               >
                 {/* ── Info side ── */}
                 <div className={catIdx % 2 === 1 ? "lg:order-2" : ""}>
                   <div
-                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold tracking-wide mb-5 border"
+                    className="inline-flex items-center gap-3 px-4 py-2 rounded-sm text-[10px] font-black tracking-[0.2em] uppercase mb-8 border transition-all duration-300"
                     style={{
-                      backgroundColor: cat.color + "15",
-                      color: cat.color,
-                      borderColor: cat.color + "30",
+                      backgroundColor: cat.color + "08",
+                      color:PRIMARY,
+                      borderColor: cat.color + "20",
                     }}
                   >
-                    <span>{cat.icon}</span>
+                    <span className="text-sm">{cat.icon}</span>
                     {cat.title}
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-snug">
+                  
+                  <h3 className="text-3xl font-bold text-gray-900 mb-6 leading-tight uppercase tracking-tight">
                     {cat.title}
                   </h3>
-                  <p className="text-gray-500 leading-relaxed mb-8">{cat.description}</p>
+                  
+                  <p className="text-gray-500 leading-relaxed mb-10 text-lg opacity-90">
+                    {cat.description}
+                  </p>
 
                   {/* Partner list */}
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {cat.partners.map((partner) => (
                       <div
                         key={partner.name}
-                        className="flex items-center gap-3 p-4 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-white hover:shadow-md transition-all duration-300 group"
+                        className="flex items-center gap-4 p-5 rounded-sm border border-gray-100 bg-white hover:border-gray-200 hover:shadow-xl transition-all duration-500 group"
                       >
-                        <div className="w-12 h-12 rounded-xl overflow-hidden bg-white border border-gray-100 shadow-sm flex-shrink-0">
+                        <div className="w-14 h-14 rounded-sm overflow-hidden bg-white border border-gray-50 shadow-sm flex-shrink-0 flex items-center justify-center p-2 group-hover:scale-105 transition-transform duration-300">
                           <img
                             src={partner.logo}
                             alt={partner.name}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                           />
                         </div>
                         <div>
-                          <p className="text-sm font-bold text-gray-900 leading-none mb-0.5">
+                          <p className="text-[13px] font-bold text-gray-900 leading-none mb-1.5 uppercase tracking-wide">
                             {partner.name}
                           </p>
-                          <p className="text-xs text-gray-400">{partner.description}</p>
+                          <p className="text-[11px] text-gray-400 font-medium">{partner.description}</p>
                         </div>
                       </div>
                     ))}
@@ -116,25 +170,25 @@ export default function OurNetworkPage({ partnerCategories, networkStats, global
 
                 {/* ── Visual side ── */}
                 <div className={`relative ${catIdx % 2 === 1 ? "lg:order-1" : ""}`}>
+                  {/* Background decorative shape */}
                   <div
-                    className="absolute -inset-3 rounded-[2.5rem] opacity-10 pointer-events-none"
-                    style={{ background: `radial-gradient(ellipse at center, ${cat.color}, transparent)` }}
+                    className="absolute -inset-6 rounded-sm opacity-[0.03] pointer-events-none transform rotate-3"
+                    style={{ backgroundColor: cat.color }}
                   />
-                  <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl">
+                  
+                  <div className="relative rounded-sm overflow-hidden aspect-[16/10] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)] group">
                     <img
-                      src={`https://picsum.photos/seed/partner-${cat.id}/900/700`}
+                      src={`https://picsum.photos/seed/partner-${cat.id}/1200/800`}
                       alt={cat.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
 
-                    {/* Category label overlay */}
-                    <div
-                      className="absolute bottom-5 left-5 px-4 py-2 rounded-xl font-bold text-white text-sm shadow-lg"
+                    {/* Category accent line */}
+                    <div 
+                      className="absolute bottom-0 left-0 w-full h-1"
                       style={{ backgroundColor: cat.color }}
-                    >
-                      {cat.icon} {cat.title}
-                    </div>
+                    />
                   </div>
                 </div>
               </motion.div>
@@ -144,18 +198,13 @@ export default function OurNetworkPage({ partnerCategories, networkStats, global
       </section>
 
       {/* ── Global Presence ── */}
-      <section className="bg-gray-50 py-20 px-6">
+      {/* <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: PRIMARY }}>
-              Where We Are
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <p className="text-4xl md:text-5xl xl:text-[3.5rem] font-bold uppercase mb-3" style={{ color: PRIMARY }}>
               Global Presence
-            </h2>
-            <p className="text-gray-500 max-w-lg mx-auto">
-              Headquartered in Kathmandu, with active offices and partner hubs across South Asia — and expanding.
             </p>
+           
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
@@ -194,7 +243,7 @@ export default function OurNetworkPage({ partnerCategories, networkStats, global
             })}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── Become a partner CTA ── */}
       <section className="bg-white py-24 px-6">
