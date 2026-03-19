@@ -19,6 +19,7 @@ export default function OurNetworkPage({ partnerCategories, networkStats, global
         titleAccent="South Asia and beyond."
         subtitle="A carefully built ecosystem of technology partners, media alliances, agency networks, and 2,000+ influencers that gives our clients an unfair advantage."
         breadcrumb="Our Network"
+        image="https://picsum.photos/seed/fipinetwork-hero/900/700"
       />
 
       {/* ── Stats row ── */}

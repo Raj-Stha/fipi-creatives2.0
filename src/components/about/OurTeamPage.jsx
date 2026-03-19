@@ -33,6 +33,7 @@ export default function OurTeamPage({ teamMembers, departments }) {
         titleAccent="behind every brief."
         subtitle="Designers, strategists, developers, and storytellers — united by craft and driven by a shared obsession with exceptional work."
         breadcrumb="Our Team"
+        image="https://picsum.photos/seed/fipiteam-hero/900/700"
       />
 
       {/* ── Featured cards (leadership) ── */}

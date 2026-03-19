@@ -23,10 +23,11 @@ export default function WhoWeArePage({ data }) {
         titleAccent="refuses to be ordinary."
         subtitle="FiPi Creatives is a full-service creative agency built on the belief that great strategy and bold design are not mutually exclusive — they are inseparable."
         breadcrumb="Who We Are"
+        image="/images/about-hero.png"
       />
 
       {/* ── Story section ── */}
-      <section className="bg-white py-20 px-6">
+      <section className="bg-white  px-6">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           {/* Image collage */}
           <motion.div
@@ -37,7 +38,7 @@ export default function WhoWeArePage({ data }) {
             className="relative"
           >
             {/* Main image */}
-            <div className="rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl">
+            <div className="rounded-xl overflow-hidden aspect-[4/3] shadow-2xl">
               <img
                 src="https://picsum.photos/seed/fipioffice/900/700"
                 alt="FiPi Creatives Team"
@@ -47,7 +48,7 @@ export default function WhoWeArePage({ data }) {
             </div>
 
             {/* Floating stat card */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -56,7 +57,7 @@ export default function WhoWeArePage({ data }) {
             >
               <p className="text-3xl font-bold text-gray-900">500+</p>
               <p className="text-sm text-gray-400 mt-0.5">Projects delivered</p>
-            </motion.div>
+            </motion.div> */}
 
             {/* Floating year badge */}
             <motion.div
@@ -94,7 +95,7 @@ export default function WhoWeArePage({ data }) {
 
             <div className="space-y-5">
               {companyStory.story.map((para, i) => (
-                <p key={i} className="text-gray-600 leading-relaxed text-[15px]">
+                <p key={i} className="text-gray-600 leading-relaxed text-[15px] text-justify">
                   {para}
                 </p>
               ))}
@@ -123,7 +124,7 @@ export default function WhoWeArePage({ data }) {
 
       {/* ── Stats row ── */}
       <section
-        className="py-16 px-6"
+        className=" py-12 px-6"
         style={{ background: `linear-gradient(135deg, ${PRIMARY}08 0%, ${SECONDARY}08 100%)` }}
       >
         <div className="max-w-7xl mx-auto">
@@ -149,13 +150,11 @@ export default function WhoWeArePage({ data }) {
       </section>
 
       {/* ── Mission & Vision ── */}
-      <section className="bg-white py-20 px-6">
+      <section className="bg-white py-12 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: PRIMARY }}>
-              What drives us
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Mission & Vision</h2>
+
+            <h2 className="text-4xl md:text-5xl xl:text-[3.5rem] font-bold uppercase" style={{ color: PRIMARY }}> What drives us</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -174,7 +173,7 @@ export default function WhoWeArePage({ data }) {
               >
                 🎯
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Our Mission</h3>
+              <h3 className="text-xl font-bold text-green-500 uppercase mb-4">Our Mission</h3>
               <p className="text-gray-600 leading-relaxed">{companyStory.mission}</p>
             </motion.div>
 
@@ -193,7 +192,7 @@ export default function WhoWeArePage({ data }) {
               >
                 🔭
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Our Vision</h3>
+              <h3 className="text-xl font-bold text-green-500 uppercase mb-4">Our Vision</h3>
               <p className="text-gray-600 leading-relaxed">{companyStory.vision}</p>
             </motion.div>
           </div>
@@ -201,18 +200,14 @@ export default function WhoWeArePage({ data }) {
       </section>
 
       {/* ── Values ── */}
-      <section className="bg-gray-50 py-20 px-6">
+      <section className="bg-gray-50 py-12 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: PRIMARY }}>
+            <p className="text-4xl md:text-5xl xl:text-[3.5rem] font-bold uppercase mb-3" style={{ color: PRIMARY }}>
               What we stand for
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Core Values
-            </h2>
-            <p className="text-gray-500 max-w-lg mx-auto">
-              These aren't posters on the wall. They're the standards we hold ourselves to every day, on every project.
-            </p>
+           
+          
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -254,7 +249,7 @@ export default function WhoWeArePage({ data }) {
       </div>
 
       {/* ── Team CTA ── */}
-      <section className="bg-white py-24 px-6 text-center">
+      <section className="bg-white py-12 px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -265,7 +260,7 @@ export default function WhoWeArePage({ data }) {
           <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: PRIMARY }}>
             The People Behind the Work
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-5">
+          <h2 className="text-4xl md:text-5xl xl:text-[3.5rem] font-bold uppercase mb-5">
             Built by a team that{" "}
             <span style={{ color: PRIMARY }}>genuinely cares</span>
           </h2>
