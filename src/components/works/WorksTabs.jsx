@@ -61,18 +61,16 @@ export default function WorksTabs({ works, categories }) {
       : works.filter((w) => w.category === activeTab);
 
   return (
-    <section id="projects" className="bg-gray-50 max-w-7xl mx-auto px-6 py-16">
+    <section id="projects" className="bg-gray-50 max-w-7xl mx-auto px-6 py-12">
       {/* Section header */}
       <div className="mb-10 text-center md:text-left">
         <p
-          className="text-xs font-bold tracking-[0.3em] uppercase mb-2"
+          className="text-4xl md:text-5xl xl:text-6xl font-bold  uppercase mb-2"
           style={{ color: PRIMARY }}
         >
-          Our Portfolio
-        </p>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
           Featured Works
-        </h2>
+        </p>
+
       </div>
 
       {/* Tab bar */}

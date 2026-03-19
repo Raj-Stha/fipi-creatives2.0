@@ -53,16 +53,16 @@ export default function WorksHero() {
               }}
             >
               <Briefcase className="w-3.5 h-3.5" />
-              Portfolio
+               Portfolio
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.05 }}
-              className="text-4xl md:text-5xl xl:text-6xl font-bold text-gray-900 leading-[1.08] tracking-tight mb-5"
+              className="text-4xl md:text-5xl xl:text-6xl font-bold text-gray-900 leading-[1.08] tracking-tight uppercase mb-5"
             >
-              Creative Works <br /> That Inspire
+              <span className="text-green-500">Creative Works</span> <br /> That Inspire
             </motion.h1>
 
             <motion.p
@@ -91,28 +91,47 @@ export default function WorksHero() {
               </a>
               <Link
                 href="/contact-us"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold border-2 text-gray-700 hover:border-gray-400 hover:text-gray-900 transition-all duration-300"
-                style={{ borderColor: "#e5e7eb" }}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-200"
+                style={{ backgroundColor: SECONDARY }}
               >
                 Start a Project
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.div>
 
-            {/* Stats row */}
+            {/* Stats row - Improvised & Colorful */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.2 }}
-              className="grid grid-cols-3 gap-6 border-t border-gray-100 pt-8"
+              className="flex flex-wrap items-center gap-x-10 gap-y-6 border-t border-gray-100 pt-10"
             >
               {[
-                { icon: FolderOpen, label: "Projects", value: "150+" },
-                { icon: Star, label: "Awards", value: "24" },
-                { icon: Eye, label: "Impressions", value: "10M+" },
+                { icon: FolderOpen, label: "Projects", value: "150+", color: PRIMARY },
+                { icon: Star, label: "Awards", value: "24", color: "#f59e0b" }, // Gold
+                { icon: Eye, label: "Impressions", value: "10M+", color: "#10b981" }, // Green/Secondary
               ].map((s) => (
-                <div key={s.label} className="flex flex-col gap-0.5">
-                  <p className="text-2xl md:text-3xl font-bold text-gray-900">{s.value}</p>
-                  <p className="text-xs text-gray-400 font-medium">{s.label}</p>
+                <div key={s.label} className="group flex items-center gap-4">
+                  {/* Icon Container */}
+                  <div 
+                    className="w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-gray-100"
+                    style={{ backgroundColor: s.color + "15" }}
+                  >
+                    <s.icon className="w-5 h-5 transition-transform duration-300 group-hover:rotate-12" style={{ color: s.color }} />
+                  </div>
+                  
+                  {/* Content */}
+                  <div>
+                    <p 
+                      className="text-2xl md:text-3xl font-black leading-none mb-1 transition-colors duration-300 group-hover:text-gray-900"
+                      style={{ color: s.color }}
+                    >
+                      {s.value}
+                    </p>
+                    <p className="text-[10px] font-bold tracking-[0.15em] text-gray-400 uppercase leading-none opacity-80 group-hover:opacity-100 transition-opacity">
+                      {s.label}
+                    </p>
+                  </div>
                 </div>
               ))}
             </motion.div>
