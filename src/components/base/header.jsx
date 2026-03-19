@@ -124,7 +124,7 @@ const navItems = [
     ],
   },
   { name: "Blog", href: "/blog" },
-  { name: "Hire Influencers", href: "/hire-influencers" },
+  // { name: "Hire Influencers", href: "/hire-influencers" },
   { name: "Contact Us", href: "/contact-us" },
 ];
 
