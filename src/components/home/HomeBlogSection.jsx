@@ -9,22 +9,16 @@ const PRIMARY_LIGHT = "#7d2c9115";
 
 export default function HomeBlogSection({ blogs }) {
   return (
-    <section className="bg-gray-50 py-20 px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-white   overflow-hidden">
+      <div className="max-w-7xl  py-12 px-6 mx-auto">
         {/* ── Section Header ── */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
           >
-            <span
-              className="text-xs font-bold tracking-[0.3em] uppercase block mb-3"
-              style={{ color: PRIMARY }}
-            >
-              From the Blog
-            </span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
               Ideas worth <span style={{ color: PRIMARY }}>reading</span>
             </h2>
@@ -38,12 +32,7 @@ export default function HomeBlogSection({ blogs }) {
           >
             <Link
               href="/blog"
-              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
-              style={{
-                color: PRIMARY,
-                borderColor: PRIMARY + "40",
-                backgroundColor: PRIMARY_LIGHT,
-              }}
+              className="group inline-flex items-center  text-primary hover:bg-primary hover:text-white gap-2 px-5 py-2.5 rounded-md text-sm font-semibold border-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
             >
               View All Blogs
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -72,7 +61,7 @@ function HomeBlogCard({ blog, index }) {
     >
       <Link
         href={`/blog/${blog.slug}`}
-        className="group overflow-hidden shadow-md bg-white rounded-2xl flex flex-col h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+        className="group overflow-hidden shadow-md bg-white rounded-md flex flex-col h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
       >
         {/* ── Image area ── */}
         <div className="relative h-52 overflow-hidden flex-shrink-0">
@@ -134,7 +123,9 @@ function HomeBlogCard({ blog, index }) {
             <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-out">
               <div className="overflow-hidden">
                 <div className="pt-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 delay-100">
-                  <span className="text-sm font-semibold text-white">Read Article</span>
+                  <span className="text-sm font-semibold text-white">
+                    Read Article
+                  </span>
                   <ArrowRight className="w-4 h-4 text-white" />
                 </div>
               </div>
