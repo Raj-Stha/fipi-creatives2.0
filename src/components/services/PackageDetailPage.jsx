@@ -139,19 +139,19 @@ export default function PackageDetailPage({ service, pkg }) {
                 </div>
               </div>
 
-              <a
-                href="/#contact"
+              <Link
+                href="/contact-us"
                 className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl text-sm font-bold text-white transition-all duration-300 hover:shadow-lg hover:shadow-purple-200 hover:-translate-y-0.5 mb-2.5"
                 style={{ backgroundColor: PRIMARY }}
               >
                 Get Started
-              </a>
-              <a
-                href="/#contact"
+              </Link>
+              <Link
+                href="/contact-us"
                 className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl text-sm font-medium text-gray-600 bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-200"
               >
                 Ask a Question
-              </a>
+              </Link>
               <p className="text-[11px] text-gray-400 text-center mt-4">
                 Free discovery call · No commitment
               </p>
@@ -328,19 +328,19 @@ export default function PackageDetailPage({ service, pkg }) {
                   ))}
                 </ul>
 
-                <a
-                  href="/#contact"
+                <Link
+                  href="/contact-us"
                   className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl text-sm font-bold text-white transition-all duration-300 hover:shadow-lg hover:shadow-purple-200 hover:-translate-y-0.5 mb-3"
                   style={{ backgroundColor: PRIMARY }}
                 >
                   Get Started Now
-                </a>
-                <a
-                  href="/#contact"
+                </Link>
+                <Link
+                  href="/contact-us"
                   className="w-full flex items-center justify-center py-3 rounded-2xl text-sm font-medium text-gray-600 bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-200"
                 >
                   Schedule a Free Call
-                </a>
+                </Link>
               </div>
 
               {/* Other packages link */}

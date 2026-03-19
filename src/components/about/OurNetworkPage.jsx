@@ -225,14 +225,14 @@ export default function OurNetworkPage({ partnerCategories, networkStats, global
                 We're always open to conversations with agencies, technology platforms, media companies, and creators who share our commitment to quality and integrity.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a
-                  href="/#contact"
+                <Link
+                  href="/contact-us"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
                   style={{ backgroundColor: PRIMARY }}
                 >
                   Get in Touch
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
                 <Link
                   href="/about/who-we-are"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold border-2 text-gray-700 hover:border-gray-400 transition-all duration-300"

@@ -125,6 +125,7 @@ const navItems = [
   },
   { name: "Blog", href: "/blog" },
   { name: "Hire Influencers", href: "/hire-influencers" },
+  { name: "Contact Us", href: "/contact-us" },
 ];
 
 export default function Header() {
@@ -410,9 +411,12 @@ export default function Header() {
                     Sign Up
                   </Link>
                 </div>
-                <button className="gradient-button w-full py-3.5 rounded-xl mt-3 shadow-md shadow-fipi-green/20">
+                <Link 
+                  href="/contact-us"
+                  className="gradient-button w-full py-3.5 rounded-xl mt-3 shadow-md shadow-fipi-green/20 block text-center"
+                >
                   Start a Project
-                </button>
+                </Link>
               </div>
             </div>
           </motion.div>

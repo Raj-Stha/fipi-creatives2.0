@@ -141,7 +141,7 @@ export default function GenericWorkDetail({ work }) {
                  </div>
 
                  <Link
-                    href="/#contact"
+                    href="/contact-us"
                     className="w-full flex items-center justify-center gap-2 py-4 rounded-[1.5rem] font-bold text-gray-900 bg-white border-2 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                     style={{ borderColor: PRIMARY }}
                   >

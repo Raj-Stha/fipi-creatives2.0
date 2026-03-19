@@ -10,6 +10,7 @@ import {
   ArrowUpRight,
   ChevronUp,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   const [year, setYear] = useState("");
@@ -49,10 +50,13 @@ export default function Footer() {
                 your digital presence?
               </h2>
               <div className="flex flex-wrap gap-4">
-                <button className="bg-white text-fipi-dark px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-secondary hover:text-white  cursor-pointer transition-all duration-300 group">
+                <Link
+                  href="/contact-us"
+                  className="bg-white text-fipi-dark px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-secondary hover:text-white  cursor-pointer transition-all duration-300 group"
+                >
                   Start a Project
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </button>
+                </Link>
                 <a
                   href="mailto:hello@fipicreatives.com"
                   className="px-8 py-4 rounded-full border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all duration-300 text-white/80 hover:text-white"
@@ -70,18 +74,21 @@ export default function Footer() {
                 Navigation
               </span>
               <ul className="space-y-4">
-                {["Services", "Work", "About", "Insights", "Careers"].map(
-                  (item) => (
-                    <li key={item}>
-                      <a
-                        href={`#${item.toLowerCase()}`}
-                        className="text-white/60 hover:text-fipi-green transition-colors duration-300 text-sm"
-                      >
-                        {item}
-                      </a>
-                    </li>
-                  ),
-                )}
+                {[
+                  { name: "Services", href: "/#services" },
+                  { name: "Work", href: "/our-works" },
+                  { name: "About", href: "/#about" },
+                  { name: "Contact", href: "/contact-us" },
+                ].map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-white/60 hover:text-fipi-green transition-colors duration-300 text-sm"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             <div>
