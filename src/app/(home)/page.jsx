@@ -16,11 +16,11 @@ export default function Home() {
       <Hero />
       <div className="relative z-10 bg-white shadow-[0_-50px_100px_rgba(0,0,0,0.5)]">
         <Stats />
+        <GrowthStrategy />
       </div>
 
       <div className="relative z-10 bg-white shadow-[0_-50px_100px_rgba(0,0,0,0.5)]">
-        <GrowthStrategy />
-        <Service />
+        {/* <Service /> */}
         <TestimonialCarousel />
         {/* <Testimonials /> */}
 
