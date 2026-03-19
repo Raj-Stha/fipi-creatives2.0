@@ -34,9 +34,14 @@ export const services = [
         badge: "Best Seller",
         badgeColor: "#f59e0b",
         icon: "MousePointerClick",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+        image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=600&q=80",
         description:
           "Perfect for small businesses entering pay-per-click advertising. We set up and manage Google Ads campaigns targeting your ideal audience.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Google Ads account setup & audit",
           "Up to 2 active campaigns",
@@ -79,6 +84,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1543286386-713bdd548da4?w=600&q=80",
         description:
           "For businesses ready to scale. Multi-platform PPC management across Google, Bing, and YouTube with A/B testing and advanced audience segmentation.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Google + Bing + YouTube Ads",
           "Up to 8 active campaigns",
@@ -121,6 +131,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=600&q=80",
         description:
           "Complete email marketing setup — welcome sequences, nurture flows, abandoned cart, win-back — designed and automated on your platform of choice.",
+        highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Platform setup (Klaviyo / Mailchimp / ActiveCampaign)",
           "Welcome series (5 emails)",
@@ -161,6 +176,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=80",
         description:
           "Full-service Meta (Facebook + Instagram) advertising management — creative strategy, audience building, campaign management, and ROAS reporting.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Facebook + Instagram campaigns",
           "Up to 5 ad sets per month",
@@ -202,6 +222,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&q=80",
         description:
           "A 4-week intensive sprint where we audit your entire funnel, identify drop-off points, design new landing pages, and run A/B tests to lift conversion rates.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Full funnel audit (ads → checkout)",
           "Heatmap & session recording analysis",
@@ -263,6 +288,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&q=80",
         description:
           "A complete starter brand identity: logo suite, color palette, typography, and basic brand guidelines — delivered in 10 business days.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Primary logo + 2 variations",
           "Color palette (5 colors)",
@@ -304,6 +334,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&q=80",
         description:
           "30 custom-designed social media graphics per month — feed posts, stories, reels covers, and carousels — designed for your brand and scheduled in advance.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "30 custom graphics/month",
           "Feed posts, stories, reels covers",
@@ -345,6 +380,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1524820197278-540916411dfd?w=600&q=80",
         description:
           "Complete print collateral package — tri-fold brochure, business card, letterhead, and email signature — designed for print-ready output.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Tri-fold brochure (front & back)",
           "Business card (front & back)",
@@ -386,6 +426,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&q=80",
         description:
           "Custom UI/UX design for web apps, mobile apps, or landing pages — from wireframes to pixel-perfect Figma prototypes with interaction flows.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "User research & persona development",
           "Information architecture",
@@ -449,6 +494,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1571721795195-a2ca2d3370a9?w=600&q=80",
         description:
           "A comprehensive technical SEO audit covering site speed, crawlability, indexing, Core Web Vitals, structured data, and 150+ technical checkpoints.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "150+ point technical checklist",
           "Core Web Vitals analysis",
@@ -491,6 +541,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&q=80",
         description:
           "Monthly on-page SEO management: keyword-optimized content, meta tags, internal linking, and page-by-page optimization that compounds over time.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Keyword research & mapping",
           "10 pages optimized/month",
@@ -533,6 +588,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=600&q=80",
         description:
           "White-hat link building with real editorial placements on high-DA websites — guest posts, digital PR, and niche-relevant link earning.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "8–12 quality backlinks/month",
           "DA 40+ target sites only",
@@ -573,6 +633,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=600&q=80",
         description:
           "Complete local SEO management — Google Business Profile optimization, local citations, review management, and local keyword ranking.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Google Business Profile setup & optimization",
           "Local citation building (30/month)",
@@ -634,6 +699,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=80",
         description:
           "A single, highly optimized landing page built on Next.js or Webflow — designed to convert ad traffic into leads or sales. Delivered in 7 days.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Custom design (based on your brand)",
           "Mobile-first responsive layout",
@@ -675,6 +745,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
         description:
           "Full e-commerce store on Shopify or WooCommerce — custom theme design, product setup, payment gateway integration, and launch support.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Custom theme design (Shopify or WooCommerce)",
           "Up to 50 products configured",
@@ -718,6 +793,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80",
         description:
           "A multi-page corporate website with CMS, contact forms, team pages, blog, and everything a professional business needs online.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Up to 10 pages",
           "Custom design",
@@ -762,6 +842,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80",
         description:
           "Custom-built web applications with authentication, real-time features, APIs, dashboards, and databases — built on modern stack (Next.js, Node.js, PostgreSQL).",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Custom requirement analysis",
           "System architecture design",
@@ -827,6 +912,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&q=80",
         description:
           "Full-service management of 2 social platforms — scheduling, caption writing, hashtag research, and community management — for consistent brand presence.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "2 platforms (Instagram + Facebook, or LinkedIn)",
           "12 posts/month per platform",
@@ -866,6 +956,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1600096194534-95cf5ece04cf?w=600&q=80",
         description:
           "Premium management across 4 platforms with custom graphic design, Reels/TikTok production, influencer outreach, and advanced analytics.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "4 platforms",
           "20 posts/month per platform",
@@ -908,6 +1003,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80",
         description:
           "A full-day content shoot — photos, short videos, and Reels — producing enough content for a full month of social media for any platform.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Full-day on-location shoot (6 hours)",
           "Professional photographer + videographer",
@@ -949,6 +1049,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1562577308-9e66f0c65ce5?w=600&q=80",
         description:
           "End-to-end influencer marketing campaign — influencer sourcing, negotiation, briefing, content review, and performance reporting.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "5-10 micro-influencer sourcing (10K–100K followers)",
           "Platform: Instagram, TikTok, or YouTube",
@@ -1010,6 +1115,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80",
         description:
           "A focused 2-week brand discovery process — research, competitor analysis, audience interviews, and a core brand positioning document.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "3 stakeholder interviews",
           "Competitor brand analysis (5 competitors)",
@@ -1051,6 +1161,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80",
         description:
           "The complete brand package — strategy, naming, visual identity, brand voice, and a full brand guidelines document ready to hand to any designer or marketer.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Brand strategy & positioning",
           "Brand naming (if needed)",
@@ -1095,6 +1210,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&q=80",
         description:
           "A complete messaging framework: brand story, value proposition, buyer personas, website copy outline, and a messaging guide your whole team can use.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Brand story development",
           "Value proposition framework",
@@ -1137,6 +1257,11 @@ export const services = [
         image: "https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=600&q=80",
         description:
           "A systematic naming process — category research, 100+ name candidates, legal screening shortlist, and a final presentation of 5 name directions.",
+                highlightImages: [
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60",
+          "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=60"
+        ],
         features: [
           "Category & competitor naming analysis",
           "100+ name candidates generated",

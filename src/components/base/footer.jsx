@@ -7,10 +7,12 @@ import {
   Twitter,
   Linkedin,
   Facebook,
+  Youtube,
   ArrowUpRight,
   ChevronUp,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const [year, setYear] = useState("");
@@ -75,10 +77,11 @@ export default function Footer() {
               </span>
               <ul className="space-y-4">
                 {[
-                  { name: "Services", href: "/#services" },
+                  { name: "About Us", href: "/who-we-are" },
+                  {name: "Our Network", href: "/network"},
                   { name: "Work", href: "/our-works" },
-                  { name: "About", href: "/#about" },
-                  { name: "Contact", href: "/contact-us" },
+                  { name: "Blog", href: "/blog" },
+                  { name: "Contact Us", href: "/contact-us" },
                 ].map((item) => (
                   <li key={item.name}>
                     <Link
@@ -97,17 +100,19 @@ export default function Footer() {
               </span>
               <ul className="space-y-4">
                 {[
-                  { name: "Instagram", icon: Instagram },
-                  { name: "Twitter", icon: Twitter },
-                  { name: "LinkedIn", icon: Linkedin },
-                  { name: "Facebook", icon: Facebook },
+                  { name: "Facebook", icon: Facebook, href: "https://www.facebook.com/FipiCreatives"},
+                  { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/fipicreatives" },
+                  // { name: "Twitter", icon: Twitter, href: "" },
+                  // { name: "Youtube", icon: Youtube, href: "" },
+                  { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/fipi-creatives" },
                 ].map((social) => (
                   <li key={social.name}>
                     <a
-                      href="#"
+                      href={social.href ? social.href : "#"}
+                      target="_blank"
                       className="flex items-center gap-3 text-white/60 hover:text-white transition-colors duration-300 text-sm group"
                     >
-                      <social.icon className="w-4 h-4 text-white/20 group-hover:text-fipi-purple transition-colors" />
+                      <social.icon className="w-4 h-4 text-white/60 group-hover:text-fipi-purple transition-colors" />
                       {social.name}
                     </a>
                   </li>
@@ -120,17 +125,15 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white font-bold text-lg">
-              F
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display font-bold tracking-tight text-white leading-none">
-                Fipi <span className="text-fipi-green">Creatives</span>
-              </span>
-              <span className="text-[10px] text-white/20 font-mono uppercase tracking-widest mt-1">
-                Digital Agency
-              </span>
-            </div>
+            <Link href="/" className="relative h-10 w-32 md:w-36 flex items-center overflow-visible group">
+              <Image
+                src="/logo.png"
+                alt="Fipi Creatives Logo"
+                width={200}
+                height={80}
+                className="invert brightness-0 object-contain object-left scale-[1.35] md:scale-[1.5] origin-left transition-all duration-500 drop-shadow-sm group-hover:opacity-80"
+              />
+            </Link>
           </div>
 
           {/* <div className="flex flex-col md:items-end gap-2">
