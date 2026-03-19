@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { works } from "@/data/works";
-import RebrandFipiDetail from "@/components/works/details/RebrandFipiDetail";
 import GenericWorkDetail from "@/components/works/details/GenericWorkDetail";
 
 export async function generateMetadata({ params }) {
@@ -20,11 +19,6 @@ export default async function WorkPage({ params }) {
   
   if (!work) notFound();
 
-  // Conditionally render a completely different UI/UX presentation based on the slug
-  if (work.slug === "rebrand-fipi") {
-    return <RebrandFipiDetail work={work} />;
-  }
-
-  // Fallback generic detail layout for all other works
+  // Unified detail layout for all works
   return <GenericWorkDetail work={work} />;
 }
