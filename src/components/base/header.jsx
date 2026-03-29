@@ -133,6 +133,10 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const pathname = usePathname();
+
+  // Normalize pathname to handle trailing slash (optional)
+  const normalizedPath = pathname?.replace(/\/$/, "") ?? "";
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -147,7 +151,8 @@ export default function Header() {
     setActiveDropdown(null);
   }, [pathname]);
 
-  const isSolid = isScrolled || activeDropdown || isMobileMenuOpen;
+  const isHome = normalizedPath === "" || normalizedPath === "/";
+  const isSolid = isScrolled || activeDropdown || isMobileMenuOpen || !isHome;
 
   return (
     <nav
@@ -411,7 +416,7 @@ export default function Header() {
                     Sign Up
                   </Link>
                 </div>
-                <Link 
+                <Link
                   href="/contact-us"
                   className="gradient-button w-full py-3.5 rounded-xl mt-3 shadow-md shadow-fipi-green/20 block text-center"
                 >
