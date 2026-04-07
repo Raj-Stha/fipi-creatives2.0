@@ -41,42 +41,21 @@ const navItems = [
     megaMenu: [
       {
         title: "Digital Marketing",
-        description:
-          "Strategic growth through data-driven multi-channel campaigns.",
-        image: "https://picsum.photos/seed/marketing/600/400",
+        description: "Corporate Planning and Strategic Growth.",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
         href: "/services/digital-marketing",
       },
       {
-        title: "Creative Design",
-        description: "Visual storytelling that leaves a lasting impression.",
-        image: "https://picsum.photos/seed/design/600/400",
-        href: "/services/creative-design",
-      },
-      {
-        title: "SEO Optimization",
-        description: "Dominating search results and driving organic traffic.",
-        image: "https://picsum.photos/seed/seo/600/400",
-        href: "/services/seo-optimization",
-      },
-      {
-        title: "Web Development",
-        description: "High-performance, scalable digital experiences.",
-        image: "https://picsum.photos/seed/web/600/400",
-        href: "/services/web-development",
-      },
-      {
-        title: "Social Media",
-        description:
-          "Building vibrant communities and powerful brand presence.",
-        image: "https://picsum.photos/seed/social/600/400",
+        title: "Social Media (SME)",
+        description: "Small and Medium Enterprise solutions.",
+        image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=80",
         href: "/services/social-media",
       },
       {
-        title: "Brand Strategy",
-        description:
-          "Defining your purpose and positioning for long-term success.",
-        image: "https://picsum.photos/seed/app/600/400",
-        href: "/services/brand-strategy",
+        title: "Search Engine Optimization",
+        description: "Dominating search rankings and visibility.",
+        image: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=600&q=80",
+        href: "/services/seo-optimization",
       },
     ],
   },
