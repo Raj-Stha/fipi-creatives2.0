@@ -10,7 +10,7 @@ import {
   Sparkles, Image, BookOpen, Layers, SearchCode, FileText,
   Link as LinkIcon, MapPin, LayoutTemplate, ShoppingCart,
   Building2, Cpu, Smartphone, Camera, Users, Compass,
-  Crown, MessageSquare, Tag, Zap, HelpCircle,
+  Crown, MessageSquare, Tag, Zap,
 } from "lucide-react";
 import { PRIMARY, PRIMARY_LIGHT, SECONDARY, SECONDARY_LIGHT } from "@/data/services";
 
@@ -22,41 +22,6 @@ const ICON_MAP = {
   Building2, Cpu, Smartphone, Camera, Users, Compass,
   Crown, MessageSquare, Tag,
 };
-
-function FaqItem({ faq }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="border border-gray-100 rounded-2xl overflow-hidden bg-white">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors"
-      >
-        <span className="font-semibold text-gray-800 pr-4 text-sm">{faq.q}</span>
-        <ChevronDown
-          className="w-4 h-4 flex-shrink-0 transition-transform duration-300"
-          style={{
-            color: PRIMARY,
-            transform: open ? "rotate(180deg)" : "rotate(0deg)",
-          }}
-        />
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.22 }}
-          >
-            <p className="px-6 pb-5 text-gray-500 leading-relaxed text-sm">
-              {faq.a}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
 
 export default function PackageDetailPage({ service, pkg }) {
   const ServiceIcon = ICON_MAP[service.icon] || Target;
@@ -91,71 +56,35 @@ export default function PackageDetailPage({ service, pkg }) {
             <span className="text-gray-700 font-semibold truncate max-w-[180px]">{pkg.title}</span>
           </nav>
 
-          <div className="flex flex-col lg:flex-row gap-10 items-start">
-            {/* Left: text */}
-            <div className="flex-1">
-              {/* Service pill */}
-              <div
-                className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-5 border"
-                style={{ background: PRIMARY_LIGHT, color: PRIMARY, borderColor: PRIMARY + "30" }}
-              >
-                <ServiceIcon className="w-3 h-3" />
-                {service.title}
-              </div>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45 }}
-                className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight leading-tight mb-3"
-              >
-                {pkg.title}
-              </motion.h1>
-              <p className="text-lg text-gray-400 max-w-xl leading-relaxed">
-                {pkg.subtitle}
-              </p>
-            </div>
-
-            {/* Right: price hero card */}
+          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+            {/* Service pill */}
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.1 }}
-              className="w-full lg:w-72 bg-white rounded-3xl shadow-xl border border-gray-100 p-6 flex-shrink-0"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-8 border backdrop-blur-sm"
+              style={{ background: PRIMARY_LIGHT, color: PRIMARY, borderColor: PRIMARY + "30" }}
             >
-              <div className="flex items-center gap-3 mb-6">
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: PRIMARY_LIGHT }}
-                >
-                  <PkgIcon className="w-5 h-5" style={{ color: PRIMARY }} />
-                </div>
-                <div>
-                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-semibold">Package Price</p>
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-2xl font-bold text-gray-900">{pkg.price}</span>
-                    {pkg.priceNote && <span className="text-xs text-gray-400">{pkg.priceNote}</span>}
-                  </div>
-                </div>
-              </div>
-
-              <Link
-                href="/contact-us"
-                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl text-sm font-bold text-white transition-all duration-300 hover:shadow-lg hover:shadow-purple-200 hover:-translate-y-0.5 mb-2.5"
-                style={{ backgroundColor: PRIMARY }}
-              >
-                Get Started
-              </Link>
-              <Link
-                href="/contact-us"
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl text-sm font-medium text-gray-600 bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-200"
-              >
-                Ask a Question
-              </Link>
-              <p className="text-[11px] text-gray-400 text-center mt-4">
-                Free discovery call · No commitment
-              </p>
+              <ServiceIcon className="w-3.5 h-3.5" />
+              {service.title}
             </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tight leading-[1.1] mb-6"
+            >
+              {pkg.title}
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-lg md:text-xl text-gray-500 max-w-2xl leading-relaxed"
+            >
+              {pkg.subtitle}
+            </motion.p>
           </div>
         </div>
       </section>
@@ -220,75 +149,6 @@ export default function PackageDetailPage({ service, pkg }) {
               </div>
             </section>
 
-            {/* Deliverables */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Deliverables</h2>
-              <ul className="space-y-3">
-                {pkg.deliverables.map((d, i) => (
-                  <li
-                    key={i}
-                    className="flex items-center gap-4 bg-white rounded-xl px-5 py-4 border border-gray-100 shadow-sm text-gray-700 text-sm"
-                  >
-                    <span
-                      className="text-xs font-bold w-7 h-7 flex-shrink-0 flex items-center justify-center rounded-full text-white"
-                      style={{ backgroundColor: PRIMARY }}
-                    >
-                      {i + 1}
-                    </span>
-                    {d}
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            {/* How It Works */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">How It Works</h2>
-              <div className="relative">
-                <div
-                  className="absolute left-5 top-0 bottom-0 w-0.5"
-                  style={{ backgroundColor: PRIMARY + "22" }}
-                />
-                <div className="space-y-6 relative">
-                  {pkg.process.map((step, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, x: -16 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.35, delay: 0.1 + i * 0.1 }}
-                      className="flex gap-5"
-                    >
-                      <div
-                        className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 z-10 shadow-md"
-                        style={{ backgroundColor: PRIMARY }}
-                      >
-                        {step.step}
-                      </div>
-                      <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex-1">
-                        <h4 className="font-bold text-gray-900 mb-1 text-sm">{step.title}</h4>
-                        <p className="text-sm text-gray-500 leading-relaxed">{step.desc}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            {/* FAQs */}
-            {pkg.faqs && pkg.faqs.length > 0 && (
-              <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                  <HelpCircle className="w-5 h-5 text-gray-400" />
-                  Frequently Asked Questions
-                </h2>
-                <div className="space-y-3">
-                  {pkg.faqs.map((faq, i) => (
-                    <FaqItem key={i} faq={faq} />
-                  ))}
-                </div>
-              </section>
-            )}
-
             {/* Back link */}
             <div>
               <Link
@@ -304,57 +164,78 @@ export default function PackageDetailPage({ service, pkg }) {
 
           {/* ── RIGHT: sticky sidebar ── */}
           <div className="hidden lg:block">
-            <div className="sticky top-28 space-y-5">
+            <div className="sticky top-28 space-y-6">
               {/* Pricing card */}
-              <div className="bg-white rounded-3xl border border-gray-100 shadow-lg p-7">
-                <h3 className="font-bold text-gray-900 mb-1 text-base">{pkg.title}</h3>
-                <p className="text-sm text-gray-400 mb-5">{pkg.subtitle}</p>
+              <motion.div 
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="bg-white rounded-[2.5rem] border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.05)] p-8 relative overflow-hidden"
+              >
+                {/* Decorative accent */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-2xl" />
 
-                <div className="flex items-baseline gap-1 mb-6">
-                  <span className="text-4xl font-bold text-gray-900">{pkg.price}</span>
-                  {pkg.priceNote && <span className="text-gray-400 text-sm">{pkg.priceNote}</span>}
+                <div className="relative z-10">
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-gray-50 border border-gray-100 shadow-sm">
+                      <PkgIcon className="w-6 h-6" style={{ color: PRIMARY }} />
+                    </div>
+                    <div>
+                      <p className="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold mb-0.5">Package Price</p>
+                      <div className="flex items-baseline gap-1.5">
+                        <span className="text-3xl font-black text-gray-900">{pkg.price}</span>
+                        {pkg.priceNote && <span className="text-sm text-gray-400 font-medium">{pkg.priceNote}</span>}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4 mb-8">
+                    <p className="text-xs font-bold text-gray-900 uppercase tracking-widest flex items-center gap-2">
+                       Core Features
+                    </p>
+                    <ul className="space-y-3">
+                      {pkg.features.slice(0, 5).map((f, i) => (
+                        <li key={i} className="flex items-start gap-3 text-sm text-gray-600 leading-tight">
+                          <div className="mt-1 w-4 h-4 rounded-full flex items-center justify-center bg-secondary/10 flex-shrink-0">
+                            <Check className="w-2.5 h-2.5 text-secondary" strokeWidth={4} />
+                          </div>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <Link
+                    href="/contact-us"
+                    className="w-full h-14 flex items-center justify-center gap-2 rounded-2xl text-sm font-bold text-white transition-all duration-500 hover:shadow-[0_10px_20px_rgba(125,44,145,0.3)] hover:-translate-y-1 mb-4"
+                    style={{ backgroundColor: PRIMARY }}
+                  >
+                    Get Started Now
+                  </Link>
+                  <Link
+                    href="/contact-us"
+                    className="w-full h-14 flex items-center justify-center py-3 rounded-2xl text-sm font-semibold text-gray-600 bg-gray-50 hover:bg-gray-100 transition-all border border-gray-100"
+                  >
+                    Ask a Question
+                  </Link>
+                  <div className="flex items-center justify-center gap-4 mt-6 text-[10px] text-gray-400 font-medium">
+                    <span className="flex items-center gap-1"><Zap className="w-3 h-3 text-secondary" /> Instant setup</span>
+                    <span className="flex items-center gap-1"><Users className="w-3 h-3 text-secondary" /> Expert support</span>
+                  </div>
                 </div>
+              </motion.div>
 
-                <ul className="space-y-2.5 mb-7">
-                  {pkg.features.slice(0, 6).map((f, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                      <Check
-                        className="w-4 h-4 mt-0.5 flex-shrink-0"
-                        style={{ color: SECONDARY }}
-                        strokeWidth={2.5}
-                      />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  href="/contact-us"
-                  className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl text-sm font-bold text-white transition-all duration-300 hover:shadow-lg hover:shadow-purple-200 hover:-translate-y-0.5 mb-3"
-                  style={{ backgroundColor: PRIMARY }}
-                >
-                  Get Started Now
-                </Link>
-                <Link
-                  href="/contact-us"
-                  className="w-full flex items-center justify-center py-3 rounded-2xl text-sm font-medium text-gray-600 bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-200"
-                >
-                  Schedule a Free Call
-                </Link>
-              </div>
-
-              {/* Other packages link */}
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">
-                  Other packages
-                </p>
+              {/* Navigation help */}
+              <div className="bg-gray-950 rounded-[2rem] p-8 text-white relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 relative z-10">Quick Navigation</p>
                 <Link
                   href={`/services/${service.slug}`}
-                  className="flex items-center gap-2 text-sm font-semibold transition-colors hover:underline"
-                  style={{ color: PRIMARY }}
+                  className="flex items-center justify-between text-sm font-bold group/link relative z-10"
                 >
-                  View all {service.title} packages
-                  <ChevronRight className="w-4 h-4" />
+                  <span className="group-hover:text-secondary transition-colors">All {service.title} Plans</span>
+                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover/link:bg-secondary transition-all">
+                    <ChevronRight className="w-4 h-4 group-hover/link:text-gray-950" />
+                  </div>
                 </Link>
               </div>
             </div>
