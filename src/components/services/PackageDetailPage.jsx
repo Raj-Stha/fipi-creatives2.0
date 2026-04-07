@@ -78,7 +78,7 @@ export default function PackageDetailPage({ service, pkg }) {
           <nav className="flex items-center gap-1.5 text-sm mb-10 flex-wrap">
             <Link href="/" className="text-gray-400 hover:text-gray-600 transition-colors">Home</Link>
             <ChevronRight className="w-3.5 h-3.5 text-gray-300 flex-shrink-0" />
-            <Link href="/#services" className="text-gray-400 hover:text-gray-600 transition-colors">Services</Link>
+            <Link href="/services" className="text-gray-400 hover:text-gray-600 transition-colors">Services</Link>
             <ChevronRight className="w-3.5 h-3.5 text-gray-300 flex-shrink-0" />
             <Link
               href={`/services/${service.slug}`}

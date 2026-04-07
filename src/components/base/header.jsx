@@ -37,7 +37,7 @@ const navItems = [
   },
   {
     name: "Services",
-    href: "/#services",
+    href: "/services",
     megaMenu: [
       {
         title: "Digital Marketing",
