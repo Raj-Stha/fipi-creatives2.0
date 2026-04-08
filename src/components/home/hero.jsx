@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import ProjectDialog from "./ProjectDialog";
 
 const TITLE_VARIANTS = [
   "Strategic Growth",
@@ -13,6 +14,7 @@ const TITLE_VARIANTS = [
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -100,11 +102,11 @@ export default function Hero() {
 
           <div className="flex justify-center flex-wrap gap-4 items-center">
             {/* Optimized Small Primary Glass Button */}
-            <Link href="/contact-us">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="relative overflow-hidden cursor-pointer px-7 py-3 rounded-md flex items-center gap-2.5 text-sm md:text-base font-semibold tracking-wide shadow-lg group bg-gradient-to-r from-fipi-purple/20 to-fipi-green/20 backdrop-blur-md border border-white/20 hover:border-white/40 transition-all font-sans"
+                onClick={() => setIsDialogOpen(true)}
+                className="relative overflow-hidden cursor-pointer px-7 py-3 rounded-md flex items-center gap-2.5 text-sm md:text-base font-semibold tracking-wide shadow-lg group bg-gradient-to-r from-fipi-purple to-fipi-green backdrop-blur-md border border-white/20 hover:border-white/40 transition-all font-sans"
               >
                 <span className="relative z-10 text-white">Start Project</span>
                 <ArrowRight className="relative z-10 w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
@@ -119,7 +121,6 @@ export default function Hero() {
                   }}
                 />
               </motion.div>
-            </Link>
 
             {/* Optimized Small Secondary Glass Button */}
             <motion.button
@@ -158,6 +159,8 @@ export default function Hero() {
           Scroll
         </span>
       </motion.div>
+
+      <ProjectDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
     </section>
   );
 }
