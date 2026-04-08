@@ -13,6 +13,7 @@ import "./globals.css";
 // });
 
 import { perfectCorporate } from "./fonts";
+import WhatsAppButton from "@/components/base/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${perfectCorporate.variable} font-sans antialiased`}>
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
