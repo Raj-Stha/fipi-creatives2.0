@@ -33,7 +33,7 @@ export default function ProjectDialog({ isOpen, onClose }) {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="relative w-full max-w-5xl bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row"
+            className="relative w-full max-w-[850px] bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row"
           >
             {/* Close Button */}
             <button
@@ -44,16 +44,16 @@ export default function ProjectDialog({ isOpen, onClose }) {
             </button>
 
             {/* Left Side: Form */}
-            <div className="flex-1 p-8 md:p-12 relative overflow-hidden">
+            <div className="flex-1 p-6 md:px-8 md:py-6 relative overflow-hidden">
                {/* Decorative Blobs (matching system UI colors) */}
                <div className="absolute -top-24 -left-24 w-64 h-64 bg-fipi-purple/5 rounded-full blur-3xl pointer-events-none" />
                <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-fipi-green/5 rounded-full blur-3xl pointer-events-none" />
 
               <div className="relative z-10">
-                <p className="text-fipi-green font-bold text-sm tracking-wider uppercase mb-2">Have a Project in Mind</p>
-                <h2 className="text-4xl md:text-5xl font-display font-black text-neutral-900 mb-8 tracking-tight">Tell Us A Bit More</h2>
+                <p className="text-fipi-purple font-bold text-[11px] tracking-[0.2em] uppercase mb-1.5">Have a Project in Mind</p>
+                <h2 className="text-2xl md:text-3xl font-display font-black text-neutral-900 mb-6 tracking-tight">Tell Us A Bit More</h2>
 
-                <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input
                       type="text"
@@ -70,15 +70,15 @@ export default function ProjectDialog({ isOpen, onClose }) {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="relative flex">
-                      <div className="flex items-center gap-2 px-3 border border-r-0 border-neutral-200 rounded-l-xl bg-neutral-50">
-                        <img src="https://flagcdn.com/w20/np.png" alt="Nepal" className="w-5 h-auto opacity-70" />
-                        <span className="text-sm text-neutral-500 font-medium">+977</span>
+                    <div className="relative flex group/input">
+                      <div className="flex items-center gap-1.5 px-3 border border-r-0 border-neutral-200 rounded-l-xl bg-neutral-50 shrink-0">
+                        <img src="https://flagcdn.com/w20/np.png" alt="Nepal" className="w-4 h-auto opacity-80" />
+                        <span className="text-[13px] text-neutral-600 font-bold">+977</span>
                       </div>
                       <input
                         type="tel"
                         placeholder="Phone Number"
-                        className="w-full px-5 py-3.5 rounded-r-xl border border-neutral-200 focus:border-fipi-green focus:ring-1 focus:ring-fipi-green outline-none transition-all placeholder:text-neutral-400"
+                        className="w-full px-4 py-3 rounded-r-xl border border-neutral-200 focus:border-fipi-green focus:ring-1 focus:ring-fipi-green outline-none transition-all placeholder:text-neutral-400 text-sm"
                       />
                     </div>
                     <select
@@ -102,7 +102,7 @@ export default function ProjectDialog({ isOpen, onClose }) {
 
                   <button
                     type="submit"
-                    className="bg-fipi-green hover:bg-emerald-600 text-white font-bold py-4 px-10 rounded-full shadow-lg shadow-fipi-green/20 transition-all transform hover:-translate-y-1"
+                    className="bg-gradient-to-r from-fipi-purple to-fipi-green hover:opacity-90 text-white font-bold py-3 px-10 rounded-full shadow-lg shadow-fipi-green/20 transition-all transform hover:-translate-y-1 text-sm"
                   >
                     Submit
                   </button>
@@ -111,7 +111,7 @@ export default function ProjectDialog({ isOpen, onClose }) {
             </div>
 
             {/* Right Side: Contact Info */}
-            <div className="w-full md:w-[380px] bg-neutral-50/50 p-8 md:p-12 flex flex-col justify-center relative border-l border-neutral-100">
+            <div className="w-full md:w-[340px] bg-gradient-to-br from-neutral-50 to-white p-6 md:px-8 md:py-8 flex flex-col justify-center relative border-l border-neutral-100">
                 {/* Background Blobs for right side (matching image style) */}
                 <div className="absolute top-0 right-0 w-full h-full pointer-events-none overflow-hidden text-fipi-green/5">
                     <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="absolute -top-10 -right-10 w-64 h-64 fill-current">
@@ -122,40 +122,40 @@ export default function ProjectDialog({ isOpen, onClose }) {
                     </svg>
                 </div>
 
-              <div className="relative z-10 space-y-10">
+              <div className="relative z-10 space-y-8">
                 <div>
-                    <h4 className="text-neutral-500 font-medium text-sm mb-1">We would love to hear from you</h4>
-                    <h3 className="text-2xl font-bold text-neutral-900">Get In Touch</h3>
+                    <h4 className="text-fipi-purple font-bold text-[12px] tracking-widest mb-1 opacity-70">CONTACT INFO</h4>
+                    <h3 className="text-2xl font-display font-black text-neutral-900 leading-tight">Get In Touch</h3>
                 </div>
 
-                <div className="space-y-8">
+                <div className="space-y-6">
                   <div className="flex items-center gap-4 group">
-                    <div className="w-12 h-12 rounded-full bg-fipi-green flex items-center justify-center text-white shadow-lg shadow-fipi-green/20 group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 rounded-2xl bg-fipi-purple flex items-center justify-center text-white shadow-lg shadow-fipi-purple/20 group-hover:rotate-6 group-hover:scale-110 transition-all duration-300 shrink-0">
                       <Phone className="w-5 h-5" />
                     </div>
-                    <div>
-                      <p className="text-xs text-neutral-400 font-bold uppercase tracking-wider">Our Phone Number</p>
-                      <p className="text-neutral-900 font-bold">9801848492</p>
+                    <div className="flex flex-col">
+                      <p className="text-[12px] text-neutral-400 font-black uppercase tracking-wider mb-0.5">Direct Line</p>
+                      <p className="text-neutral-900 font-bold text-base">+977 976-4820218</p>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-4 group">
-                    <div className="w-12 h-12 rounded-full bg-fipi-green flex items-center justify-center text-white shadow-lg shadow-fipi-green/20 group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 rounded-2xl bg-fipi-purple flex items-center justify-center text-white shadow-lg shadow-fipi-purple/20 group-hover:rotate-6 group-hover:scale-110 transition-all duration-300 shrink-0">
                       <Mail className="w-5 h-5" />
                     </div>
-                    <div>
-                      <p className="text-xs text-neutral-400 font-bold uppercase tracking-wider">Our Email</p>
-                      <p className="text-neutral-900 font-bold">hello@fipicreatives.com</p>
+                    <div className="flex flex-col">
+                      <p className="text-[12px] text-neutral-400 font-black uppercase tracking-wider mb-1">Email Inquiry</p>
+                      <p className="text-neutral-900 font-bold text-[15px]">info@fipicreatives.com</p>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-4 group">
-                    <div className="w-12 h-12 rounded-full bg-fipi-green flex items-center justify-center text-white shadow-lg shadow-fipi-green/20 group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 rounded-2xl bg-fipi-purple flex items-center justify-center text-white shadow-lg shadow-fipi-purple/20 group-hover:rotate-6 group-hover:scale-110 transition-all duration-300 shrink-0">
                       <MapPin className="w-5 h-5" />
                     </div>
-                    <div>
-                      <p className="text-xs text-neutral-400 font-bold uppercase tracking-wider">Office Address</p>
-                      <p className="text-neutral-900 font-bold">Shankhamul, Kathmandu</p>
+                    <div className="flex flex-col">
+                      <p className="text-[12px] text-neutral-400 font-black uppercase tracking-wider mb-1">Our Studio</p>
+                      <p className="text-neutral-900 font-bold text-base">Baluwatar, Kathmandu</p>
                     </div>
                   </div>
                 </div>
