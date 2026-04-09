@@ -1,145 +1,161 @@
 "use client";
 
-import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
-import { useState, useEffect, useRef } from "react";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { useState, useEffect, useCallback } from "react";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import WorkCard from "./WorkCard";
 import { PRIMARY } from "@/data/services";
 
 export default function WorksTabs({ works, categories }) {
-  const searchParams = useSearchParams();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const pathname = usePathname();
-  const categoryParam = searchParams.get("category");
 
-  const [activeTab, setActiveTab] = useState("all");
-  const isManualTabChange = useRef(false);
+  // Get initial states from URL
+  const initialCategory = searchParams.get("category") || "all";
+  const initialChild = searchParams.get("child") || "all";
 
+  const [activeTab, setActiveTab] = useState(initialCategory);
+  const [activeChild, setActiveChild] = useState(initialChild);
+
+  // Sync state with URL changes (back/forward button)
   useEffect(() => {
-    if (categoryParam && categories.some((c) => c.id === categoryParam)) {
-      setActiveTab(categoryParam);
-      
-      // If we didn't just click a tab manually, smooth scroll to this section
-      if (!isManualTabChange.current) {
-        setTimeout(() => {
-          const element = document.getElementById("projects");
-          if (element) {
-            const y = element.getBoundingClientRect().top + window.scrollY - 80; // 80px offset for the fixed header
-            window.scrollTo({ top: y, behavior: "smooth" });
-          }
-        }, 100);
-      }
+    const cat = searchParams.get("category") || "all";
+    const child = searchParams.get("child") || "all";
+    setActiveTab(cat);
+    setActiveChild(child);
+  }, [searchParams]);
+
+  // Update URL helper
+  const updateUrl = useCallback((category, child) => {
+    const params = new URLSearchParams(searchParams);
+    if (category === "all") {
+      params.delete("category");
     } else {
-      setActiveTab("all");
+      params.set("category", category);
     }
-    
-    // Reset manual override after effect runs
-    isManualTabChange.current = false;
-  }, [categoryParam, categories]);
+
+    if (child === "all") {
+      params.delete("child");
+    } else {
+      params.set("child", child);
+    }
+
+    const query = params.toString();
+    router.push(query ? `${pathname}?${query}` : pathname, { scroll: false });
+  }, [pathname, router, searchParams]);
 
   const handleTabChange = (catId) => {
-    isManualTabChange.current = true;
     setActiveTab(catId);
-    
-    // Update the URL without scrolling
-    const current = new URLSearchParams(Array.from(searchParams.entries()));
-    if (catId === "all") {
-      current.delete("category");
-    } else {
-      current.set("category", catId);
-    }
-    
-    const search = current.toString();
-    const query = search ? `?${search}` : "";
-    router.replace(`${pathname}${query}`, { scroll: false });
+    setActiveChild("all"); // Reset child when switching main category
+    updateUrl(catId, "all");
   };
 
-  const filtered =
-    activeTab === "all"
-      ? works
-      : works.filter((w) => w.category === activeTab);
+  const handleChildChange = (childId) => {
+    setActiveChild(childId);
+    updateUrl(activeTab, childId);
+  };
+
+  const currentCategory = categories.find(cat => cat.id === activeTab);
+  const children = currentCategory?.children || [];
+
+  const filtered = works.filter(work => {
+    const matchParent = activeTab === "all" || work.category === activeTab;
+    const matchChild = activeChild === "all" || work.childCategory === activeChild;
+    return matchParent && matchChild;
+  });
 
   return (
-    <section id="projects" className="bg-gray-50 max-w-7xl mx-auto px-6 py-12">
-      {/* Section header */}
-      <div className="mb-10 text-center md:text-left">
-        <p
-          className="text-4xl md:text-5xl xl:text-6xl font-bold  uppercase mb-2"
-          style={{ color: PRIMARY }}
-        >
-          Featured Works
-        </p>
-
+    <section id="projects" className="bg-white max-w-7xl mx-auto px-6 py-12">
+      {/* Top Header */}
+      <div className="text-center mb-16">
+        <div className="flex items-center justify-center gap-4 mb-4">
+           <div className="h-px w-12 bg-gray-200" />
+           <span className="text-sm font-bold tracking-[0.2em] text-gray-400 uppercase">Our Portfolio</span>
+           <div className="h-px w-12 bg-gray-200" />
+        </div>
+        <h2 className="text-5xl md:text-6xl font-black text-gray-900 leading-tight">
+          Some Of Our <span style={{ color: PRIMARY }}>Recent Work</span>
+        </h2>
       </div>
 
-      {/* Tab bar */}
-      <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-12 p-1.5 bg-white rounded-2xl w-fit xl:mx-0 mx-auto shadow-sm border border-gray-100">
+      {/* Parent Tabs - Pills */}
+      <div className="flex flex-wrap justify-center gap-3 mb-10">
         {categories.map((cat) => {
           const isActive = activeTab === cat.id;
           return (
             <button
               key={cat.id}
               onClick={() => handleTabChange(cat.id)}
-              className="relative px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors duration-200 outline-none"
-              style={{ color: isActive ? "#fff" : "#9ca3af" }}
+              className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 border ${
+                isActive 
+                  ? "text-white shadow-lg" 
+                  : "bg-white text-gray-400 border-gray-200 hover:border-gray-300 hover:text-gray-600"
+              }`}
+              style={{ 
+                backgroundColor: isActive ? PRIMARY : "transparent",
+                borderColor: isActive ? PRIMARY : undefined
+              }}
             >
-              {isActive && (
-                <motion.span
-                  layoutId="work-tab-pill"
-                  className="absolute inset-0 rounded-xl z-0"
-                  style={{ backgroundColor: PRIMARY }}
-                  transition={{ type: "spring", bounce: 0.22, duration: 0.4 }}
-                />
-              )}
-              <span className="relative z-10">{cat.label}</span>
+              {cat.label}
             </button>
           );
         })}
       </div>
 
+      {/* Child Tabs - List inline */}
+      <AnimatePresence mode="wait">
+        {children.length > 0 && (
+          <motion.div 
+            key={activeTab}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="flex flex-wrap justify-center gap-8 mb-12"
+          >
+            {children.map((child) => (
+              <button
+                key={child.id}
+                onClick={() => handleChildChange(child.id)}
+                className={`text-sm font-bold transition-colors duration-200 relative pb-1 ${
+                  activeChild === child.id ? "text-gray-900" : "text-gray-400 hover:text-gray-600"
+                }`}
+              >
+                {child.label}
+                {activeChild === child.id && (
+                  <motion.div 
+                    layoutId="activeChildUnderline"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 rounded-full"
+                    style={{ backgroundColor: PRIMARY }}
+                  />
+                )}
+              </button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Works grid */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, y: 10 }}
+          key={`${activeTab}-${activeChild}`}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.22 }}
+          transition={{ duration: 0.3 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {filtered.map((work, i) => (
-            <motion.div
-              key={work.slug}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.28, delay: i * 0.06 }}
-            >
-              <WorkCard work={work} />
-            </motion.div>
+            <WorkCard key={work.slug} work={work} />
           ))}
         </motion.div>
       </AnimatePresence>
 
       {filtered.length === 0 && (
         <div className="text-center py-20 text-gray-400">
-          No works in this category yet.
+          No projects found in this category.
         </div>
       )}
-
-      {/* Bottom CTA */}
-      <div className="mt-16 text-center">
-        <p className="text-gray-400 text-sm mb-4">
-          Ready to start your own project with us?
-        </p>
-        <Link
-          href="/contact-us"
-          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-200"
-          style={{ backgroundColor: PRIMARY }}
-        >
-          Let's Talk Business →
-        </Link>
-      </div>
     </section>
   );
 }
