@@ -123,20 +123,22 @@ export default function Hero() {
               </motion.div>
 
             {/* Optimized Small Secondary Glass Button */}
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                backgroundColor: "rgba(255,255,255,0.1)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="px-7 py-3 rounded-md border border-white/10 text-sm md:text-base font-medium backdrop-blur-md flex items-center gap-2.5 transition-all duration-300 relative group overflow-hidden"
-            >
-              <div className="absolute cursor-pointer inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <span className="relative z-10 text-white group-hover:text-white transition-colors">
-                Our Services
-              </span>
-              <Sparkles className="w-4 h-4 text-white  group-hover:rotate-12 transition-transform" />
-            </motion.button>
+            <Link href="/services">
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  backgroundColor: "rgba(16, 185, 129, 0.1)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="px-7 py-3 rounded-md border border-fipi-green/50 text-sm md:text-base font-medium backdrop-blur-md flex items-center gap-2.5 transition-all duration-300 relative group overflow-hidden"
+              >
+                <div className="absolute cursor-pointer inset-0 bg-gradient-to-br from-fipi-green/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <span className="relative z-10 text-white group-hover:text-fipi-green transition-colors font-semibold">
+                  Our Services
+                </span>
+                <Sparkles className="w-4 h-4 text-fipi-green group-hover:rotate-12 transition-transform" />
+              </motion.button>
+            </Link>
           </div>
         </motion.div>
       </div>

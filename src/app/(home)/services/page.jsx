@@ -65,9 +65,9 @@ export default function ServicesPage() {
                       {service.description}
                     </p>
 
-                    <div className="space-y-2 mb-8 text-sm text-gray-500">
+                    <div className="flex flex-wrap gap-2 mb-8 text-sm text-gray-500">
                       {service.categories.slice(1, 4).map((cat) => (
-                        <div key={cat.id} className="flex items-center gap-2">
+                        <div key={cat.id} className="flex items-center gap-1">
                           <CheckCircle2 className="w-4 h-4 text-secondary" />
                           <span>{cat.label}</span>
                         </div>

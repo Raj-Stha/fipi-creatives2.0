@@ -54,7 +54,7 @@ export default function ServiceHero({ service }) {
         >
           <Link href="/" className="text-gray-400 hover:text-gray-600 transition-colors">Home</Link>
           <ChevronRight className="w-3.5 h-3.5 text-gray-300" />
-          <Link href="/services" className="text-gray-400 hover:text-gray-600 transition-colors">Services</Link>
+          <Link href="/services" className="text-gray-400 hover:text-gray-600 transition-colors relative z-30 cursor-pointer py-1">Services</Link>
           <ChevronRight className="w-3.5 h-3.5 text-gray-300" />
           <span className="font-semibold text-gray-700">{service.title}</span>
         </motion.nav>

@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  Check, ChevronRight, ChevronDown, ArrowLeft,
+  Check, ChevronRight,
   TrendingUp, Palette, Search, Code2, Share2, Target,
   MousePointerClick, BarChart3, Mail, Megaphone, Filter,
   Sparkles, Image, BookOpen, Layers, SearchCode, FileText,
@@ -28,221 +28,160 @@ export default function PackageDetailPage({ service, pkg }) {
   const PkgIcon = ICON_MAP[pkg.icon] || Zap;
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-50 min-h-screen pt-20">
 
-      {/* ── Hero ── */}
-      <section className="relative bg-white pt-28 pb-16 overflow-hidden">
-        {/* Subtle bg wash */}
-        <div
-          className="absolute top-0 right-0 w-1/2 h-full pointer-events-none"
-          style={{ background: `radial-gradient(ellipse at top right, ${PRIMARY}0a 0%, transparent 70%)` }}
-        />
-
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          {/* Breadcrumbs */}
-          <nav className="flex items-center gap-1.5 text-sm mb-10 flex-wrap">
-            <Link href="/" className="text-gray-400 hover:text-gray-600 transition-colors">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-gray-300 flex-shrink-0" />
-            <Link href="/services" className="text-gray-400 hover:text-gray-600 transition-colors">Services</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-gray-300 flex-shrink-0" />
-            <Link
-              href={`/services/${service.slug}`}
-              className="hover:underline transition-colors"
-              style={{ color: PRIMARY }}
-            >
-              {service.title}
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-gray-300 flex-shrink-0" />
-            <span className="text-gray-700 font-semibold truncate max-w-[180px]">{pkg.title}</span>
+      {/* ── Header ── */}
+      <section className="bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 py-6 text-center md:text-left">
+          <nav className="flex items-center justify-center md:justify-start gap-1 text-[9px] uppercase tracking-[0.2em] font-bold text-gray-400 mb-4 flex-wrap">
+            <Link href="/" className="hover:text-primary">Home</Link>
+            <ChevronRight className="w-3 h-3 text-gray-300" />
+            <Link href="/services" className="hover:text-primary relative z-30 cursor-pointer py-1">Services</Link>
+            <ChevronRight className="w-3 h-3 text-gray-300" />
+            <Link href={`/services/${service.slug}`} className="hover:text-primary">{service.title}</Link>
+            <ChevronRight className="w-3 h-3 text-gray-300" />
+            <span className="text-gray-900">{pkg.title}</span>
           </nav>
 
-          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-            {/* Service pill */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-8 border backdrop-blur-sm"
-              style={{ background: PRIMARY_LIGHT, color: PRIMARY, borderColor: PRIMARY + "30" }}
-            >
-              <ServiceIcon className="w-3.5 h-3.5" />
-              {service.title}
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tight leading-[1.1] mb-6"
-            >
-              {pkg.title}
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg md:text-xl text-gray-500 max-w-2xl leading-relaxed"
-            >
-              {pkg.subtitle}
-            </motion.p>
-          </div>
         </div>
       </section>
 
-      {/* ── Main content ── */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      {/* ── Compact Two-Column Content ── */}
+      <main className="max-w-7xl mx-auto px-6 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
-          {/* ── LEFT: detailed info ── */}
-          <div className="lg:col-span-2 space-y-12">
+          {/* ── LEFT: Services Card (Reduced Size) ── */}
+          <section className="lg:col-span-7 relative bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-gray-100 overflow-hidden group">
+            
+            {/* ── Premium Diagonal Badge ── */}
+            <div className="absolute top-0 left-0 w-32 h-32 overflow-hidden pointer-events-none z-20">
+              <div 
+                className="absolute top-6 -left-10 w-40 py-1.5 transform -rotate-45 text-center text-[8px] sm:text-[9px] font-black uppercase tracking-[0.2em] text-white shadow-lg border-y border-white/10"
+                style={{ 
+                  background: `linear-gradient(135deg, ${PRIMARY}, ${SECONDARY})` 
+                }}
+              >
+                {pkg.title}
+              </div>
+            </div>
 
-            {/* Hero image */}
+            {/* ── Center: Minimalist Service Title ── */}
+            <div className="absolute top-6 left-0 w-full flex justify-center z-10 pointer-events-none px-24">
+              <div className="flex flex-col items-center">
+                <span className="text-[7px] sm:text-[8px] font-black text-gray-400 uppercase tracking-[0.5em] text-center max-w-[200px] sm:max-w-none">
+                  {service.title}
+                </span>
+                <div className="h-[2px] w-6 bg-secondary/30 rounded-full mt-1.5" />
+              </div>
+            </div>
+
+            <div className="flex justify-end mb-10 relative z-20 pt-4 sm:pt-3">
+              {/* ── Clean Minimalist Price Badge ── */}
+              <div className="relative group/price">
+                <div 
+                  className="absolute -inset-1 blur-lg opacity-20 group-hover/price:opacity-40 transition-opacity rounded-2xl"
+                  style={{ background: `linear-gradient(135deg, ${PRIMARY}, ${SECONDARY})` }}
+                />
+                <div 
+                  className="relative flex items-center gap-4 px-6 py-3 rounded-2xl text-white shadow-2xl border border-white/20 backdrop-blur-xl transition-all hover:scale-105"
+                  style={{ backgroundColor: PRIMARY }}
+                >
+                  <span className="text-xl sm:text-2xl font-black tracking-tight whitespace-nowrap">{pkg.price}</span>
+                  <div className="h-4 w-px bg-white/20" />
+                  <span className="text-[10px] font-black text-white/30 uppercase tracking-widest">{pkg.priceNote}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative z-10 grid sm:grid-cols-2 gap-2">
+              {pkg.features.map((f, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.03 }}
+                  className="flex items-center gap-2.5 p-1.5 rounded-xl bg-gray-50/50 hover:bg-white border border-transparent hover:border-primary/10 hover:shadow-sm transition-all"
+                >
+                  <div className="w-7 h-7 rounded-lg bg-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <Check className="w-4 h-4 text-secondary" strokeWidth={5} />
+                  </div>
+                  <span className="text-sm font-bold text-gray-700 tracking-tight leading-snug">{f}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-8 pt-8 border-t border-gray-50 flex flex-col sm:flex-row items-center gap-4">
+              <Link
+                href="/contact-us"
+                className="flex-1 w-full h-12 flex items-center justify-center gap-2 rounded-xl text-sm font-black text-white transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                style={{ backgroundColor: PRIMARY }}
+              >
+                Get Started Now
+                <Zap className="w-4 h-4" />
+              </Link>
+              <Link
+                href={`/services/${service.slug}`}
+                className="px-6 h-12 flex items-center justify-center text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 hover:text-primary border border-gray-100 rounded-xl transition-all"
+              >
+                Compare Plans
+              </Link>
+            </div>
+          </section>
+
+          {/* ── RIGHT: Details Card (Compact) ── */}
+          <section className="lg:col-span-5 bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 flex flex-col">
+            {/* Slimmer Image Banner */}
             {pkg.image && (
-              <div className="rounded-3xl overflow-hidden aspect-[16/7] shadow-lg">
+              <div className="aspect-[21/9] relative overflow-hidden">
                 <img
                   src={pkg.image}
                   alt={pkg.title}
                   className="w-full h-full object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/20 to-transparent" />
               </div>
             )}
 
-            {/* Overview */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Overview</h2>
-              <p className="text-gray-600 leading-relaxed text-base">{pkg.description}</p>
-            </section>
-
-            {/* Who is it for — subtle secondary bg */}
-            <section
-              className="rounded-2xl p-6 border"
-              style={{
-                background: SECONDARY_LIGHT,
-                borderColor: SECONDARY + "33",
-              }}
-            >
-              <h3 className="font-bold text-gray-800 mb-2 flex items-center gap-2 text-sm uppercase tracking-widest">
-                <Target className="w-4 h-4" style={{ color: SECONDARY }} />
-                Who is this for?
-              </h3>
-              <p className="text-gray-700 leading-relaxed">{pkg.whoIsItFor}</p>
-            </section>
-
-            {/* What's Included */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">What&apos;s Included</h2>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {pkg.features.map((f, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-100 shadow-sm"
-                  >
-                    <span
-                      className="mt-0.5 w-5 h-5 flex-shrink-0 rounded-full flex items-center justify-center"
-                      style={{ backgroundColor: SECONDARY }}
-                    >
-                      <Check className="w-3 h-3 text-white" strokeWidth={3} />
-                    </span>
-                    <span className="text-sm text-gray-700">{f}</span>
-                  </div>
-                ))}
+            <div className="p-6 md:p-8 space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-[10px] font-black text-primary uppercase tracking-[0.3em] flex items-center gap-2">
+                  <FileText className="w-3.5 h-3.5" />
+                  Overview
+                </h3>
+                <p className="text-gray-600 text-sm font-medium leading-relaxed">
+                  {pkg.description}
+                </p>
               </div>
-            </section>
 
-            {/* Back link */}
-            <div>
-              <Link
-                href={`/services/${service.slug}`}
-                className="inline-flex items-center gap-2 text-sm font-semibold transition-colors group"
-                style={{ color: PRIMARY }}
-              >
-                <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-                Back to {service.title} packages
-              </Link>
-            </div>
-          </div>
-
-          {/* ── RIGHT: sticky sidebar ── */}
-          <div className="hidden lg:block">
-            <div className="sticky top-28 space-y-6">
-              {/* Pricing card */}
-              <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="bg-white rounded-[2.5rem] border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.05)] p-8 relative overflow-hidden"
-              >
-                {/* Decorative accent */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-2xl" />
-
-                <div className="relative z-10">
-                  <div className="flex items-center gap-4 mb-8">
-                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-gray-50 border border-gray-100 shadow-sm">
-                      <PkgIcon className="w-6 h-6" style={{ color: PRIMARY }} />
-                    </div>
-                    <div>
-                      <p className="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold mb-0.5">Package Price</p>
-                      <div className="flex items-baseline gap-1.5">
-                        <span className="text-3xl font-black text-gray-900">{pkg.price}</span>
-                        {pkg.priceNote && <span className="text-sm text-gray-400 font-medium">{pkg.priceNote}</span>}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4 mb-8">
-                    <p className="text-xs font-bold text-gray-900 uppercase tracking-widest flex items-center gap-2">
-                       Core Features
-                    </p>
-                    <ul className="space-y-3">
-                      {pkg.features.slice(0, 5).map((f, i) => (
-                        <li key={i} className="flex items-start gap-3 text-sm text-gray-600 leading-tight">
-                          <div className="mt-1 w-4 h-4 rounded-full flex items-center justify-center bg-secondary/10 flex-shrink-0">
-                            <Check className="w-2.5 h-2.5 text-secondary" strokeWidth={4} />
-                          </div>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <Link
-                    href="/contact-us"
-                    className="w-full h-14 flex items-center justify-center gap-2 rounded-2xl text-sm font-bold text-white transition-all duration-500 hover:shadow-[0_10px_20px_rgba(125,44,145,0.3)] hover:-translate-y-1 mb-4"
-                    style={{ backgroundColor: PRIMARY }}
-                  >
-                    Get Started Now
-                  </Link>
-                  <Link
-                    href="/contact-us"
-                    className="w-full h-14 flex items-center justify-center py-3 rounded-2xl text-sm font-semibold text-gray-600 bg-gray-50 hover:bg-gray-100 transition-all border border-gray-100"
-                  >
-                    Ask a Question
-                  </Link>
-                  <div className="flex items-center justify-center gap-4 mt-6 text-[10px] text-gray-400 font-medium">
-                    <span className="flex items-center gap-1"><Zap className="w-3 h-3 text-secondary" /> Instant setup</span>
-                    <span className="flex items-center gap-1"><Users className="w-3 h-3 text-secondary" /> Expert support</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Navigation help */}
-              <div className="bg-gray-950 rounded-[2rem] p-8 text-white relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 relative z-10">Quick Navigation</p>
-                <Link
-                  href={`/services/${service.slug}`}
-                  className="flex items-center justify-between text-sm font-bold group/link relative z-10"
+              <div className="space-y-3">
+                <h3 className="text-[10px] font-black text-secondary uppercase tracking-[0.3em] flex items-center gap-2">
+                  <Target className="w-3.5 h-3.5" />
+                  Best For
+                </h3>
+                <div 
+                  className="rounded-2xl p-4 border border-secondary/20 bg-secondary/5"
                 >
-                  <span className="group-hover:text-secondary transition-colors">All {service.title} Plans</span>
-                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover/link:bg-secondary transition-all">
-                    <ChevronRight className="w-4 h-4 group-hover/link:text-gray-950" />
-                  </div>
-                </Link>
+                  <p className="text-gray-800 text-sm font-bold leading-relaxed">
+                    {pkg.whoIsItFor}
+                  </p>
+                </div>
+              </div>
+
+              {/* Compact Trust Message */}
+              <div className="flex items-center gap-3 p-4 rounded-2xl bg-gray-50 border border-gray-100">
+                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm flex-shrink-0">
+                  <Zap className="w-5 h-5 text-secondary" />
+                </div>
+                <div>
+                  <h4 className="text-[11px] font-black text-gray-900 tracking-tight">Priority Support</h4>
+                  <p className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">Included with your package</p>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
 
         </div>
-      </div>
+      </main>
     </div>
   );
 }
