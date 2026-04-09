@@ -57,6 +57,24 @@ const navItems = [
         image: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=600&q=80",
         href: "/services/seo-optimization",
       },
+      {
+        title: "Website Development",
+        description: "High-performance custom websites.",
+        image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80",
+        href: "/services/website-development",
+      },
+      {
+        title: "Mobile App Development",
+        description: "Innovative iOS and Android solutions.",
+        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80",
+        href: "/services/mobile-app-development",
+      },
+      {
+        title: "Branding & Print",
+        description: "Consistent brand identity across touchpoints.",
+        image: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?w=600&q=80",
+        href: "/services/branding-collateral",
+      },
     ],
   },
   {

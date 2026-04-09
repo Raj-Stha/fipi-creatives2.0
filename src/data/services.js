@@ -16,6 +16,18 @@ export const services = [
       "Our Corporate Planning services provide a multi-layered approach to digital growth, combining advanced social media management with robust technical SEO and local visibility.",
     icon: "TrendingUp",
     heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
+    comparisonFeatures: [
+      { label: "SMM Graphical Posts", keyword: "Graphical Posts", icon: "🎨" },
+      { label: "GIFs / Reels Content", keyword: "Reel", icon: "🎬" },
+      { label: "Festive Posts", keyword: "Festive", icon: "🎉" },
+      { label: "Ad Budget & Management", keyword: "Ad", icon: "💰" },
+      { label: "Technical SEO Audit", keyword: "Technical", icon: "⚙️" },
+      { label: "On-Page Optimization", keyword: "On-Page", icon: "📄" },
+      { label: "Local SEO / Google Maps", keyword: "Local", icon: "📍" },
+      { label: "High-Quality Blog Posts", keyword: "Blog", icon: "✍️" },
+      { label: "Advanced Analytics", keyword: "Analysis", icon: "📈" },
+      { label: "Full Strategic Management", keyword: "Management", icon: "👑" },
+    ],
     categories: [
       { id: "all", label: "All Packages" },
       { id: "basic", label: "Basic" },
@@ -44,7 +56,7 @@ export const services = [
         features: [
           "4 Graphical Posts (SMM)",
           "1 Gif / Reel (SMM)",
-          "2 Festival Posts (SMM)",
+          "2 Festive Posts (SMM)",
           "Post Scheduling & Copywriting",
           "Facebook + Instagram Platforms",
           "Technical SEO & SSL/TLS HTTPS",
@@ -188,6 +200,17 @@ export const services = [
       "Tailored social media solutions for SMEs focused on engagement, brand awareness, and converting followers into loyal customers.",
     icon: "Megaphone",
     heroImage: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&q=80",
+    comparisonFeatures: [
+      { label: "Graphical Posts", keyword: "Graphical Posts", icon: "🎨" },
+      { label: "GIFs / Reels", keyword: "Reel", icon: "🎬" },
+      { label: "Festive Posts", keyword: "Festive", icon: "🎉" },
+      { label: "Post Scheduling", keyword: "Scheduling", icon: "📅" },
+      { label: "Copywriting", keyword: "Copywriting", icon: "✍️" },
+      { label: "Ad Budget included", keyword: "Ad", icon: "💰" },
+      { label: "Content Plan & Calendar", keyword: "Calendar", icon: "📋" },
+      { label: "Research & Analysis", keyword: "Analysis", icon: "🔍" },
+      { label: "Full Account Management", keyword: "Management", icon: "👑" },
+    ],
     categories: [
       { id: "all", label: "All Packages" },
       { id: "basic", label: "Basic" },
@@ -210,10 +233,10 @@ export const services = [
         features: [
           "4 Graphical Posts",
           "1 Gif / Reel",
-          "2 Festival Posts",
+          "2 Festive Posts",
           "Post Scheduling",
           "Platform (Facebook + Instagram)",
-          "Copy Writing"
+          "Copywriting"
         ],
         deliverables: ["7 visual assets per month", "Copywriting for all posts", "Strategic scheduling"],
         whoIsItFor: "New startups and local shops starting their social journey.",
@@ -247,7 +270,7 @@ export const services = [
           "Post Scheduling",
           "Content Plan and Calendar",
           "Platform (Facebook + Instagram)",
-          "Copy Writing",
+          "Copywriting",
           "Research and Analysis",
           "Ad Budget included ($10)"
         ],
@@ -285,8 +308,9 @@ export const services = [
           "Competitor Analysis",
           "Content Plan & Calendar",
           "Platform (Facebook + Instagram)",
-          "Content Writing",
-          "Ad budget included ($20)"
+          "Copywriting",
+          "Post Scheduling",
+          "Ad Budget included ($20)"
         ],
         deliverables: ["22+ high-quality assets", "Competitor benchmark report", "Optimized profile presence"],
         whoIsItFor: "Established SMEs wanting premium social media management.",
@@ -313,6 +337,17 @@ export const services = [
       "Technical, On-Page, and Off-Page SEO solutions designed to move your rankings and keep you on page 1 of search results.",
     icon: "Search",
     heroImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=1200&q=80",
+    comparisonFeatures: [
+      { label: "Technical SEO (SSL/Speed)", keyword: "Technical", icon: "⚙️" },
+      { label: "On-Page Optimization", keyword: "On-Page", icon: "📄" },
+      { label: "Keyword Research", keyword: "Keywords", icon: "🔑" },
+      { label: "Meta Tags & Header Opt.", keyword: "Tags", icon: "🏷️" },
+      { label: "Local SEO / GMB", keyword: "Local SEO", icon: "📍" },
+      { label: "Content Freshness & Internal Linking", keyword: "Internal", icon: "🔄" },
+      { label: "Off-Page: Blog Posts", keyword: "Blog", icon: "✍️" },
+      { label: "Link Building / Guest Post", keyword: "Link", icon: "🔗" },
+      { label: "Review & Reputation Mgmt", keyword: "Review", icon: "⭐" },
+    ],
     categories: [
       { id: "all", label: "All Packages" },
       { id: "basic", label: "Basic" },
@@ -431,6 +466,60 @@ export const services = [
         ],
       },
     ],
+  },
+
+  // ── 4. Website Development ──────────────────────────────────────────────────
+  {
+    slug: "website-development",
+    title: "Website Development",
+    tagline: "High-performance, custom websites that convert.",
+    description:
+      "We build robust, scalable, and visually stunning websites tailored to your business goals, from e-commerce platforms to corporate portals.",
+    icon: "Layout",
+    heroImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80",
+    categories: [
+      { id: "custom", label: "Custom Design" },
+      { id: "ecommerce", label: "E-Commerce" },
+      { id: "performance", label: "Page Speed" },
+    ],
+    packages: [],
+    comparisonFeatures: []
+  },
+
+  // ── 5. Mobile App Development ────────────────────────────────────────────────
+  {
+    slug: "mobile-app-development",
+    title: "Mobile App Development",
+    tagline: "Innovative mobile experiences for iOS and Android.",
+    description:
+      "Transform your ideas into powerful mobile applications with our end-to-end development services, focusing on user experience and technical excellence.",
+    icon: "Smartphone",
+    heroImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&q=80",
+    categories: [
+      { id: "ios", label: "iOS Development" },
+      { id: "android", label: "Android Development" },
+      { id: "cross-platform", label: "React Native/Flutter" },
+    ],
+    packages: [],
+    comparisonFeatures: []
+  },
+
+  // ── 6. Branding & Print Collateral ──────────────────────────────────────────
+  {
+    slug: "branding-collateral",
+    title: "Branding & Print Collateral",
+    tagline: "Consistent brand identity across all physical touchpoints.",
+    description:
+      "From brochures and visiting cards to custom calendars and stationary, we design professional print materials that leave a lasting impression.",
+    icon: "PenTool",
+    heroImage: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?w=1200&q=80",
+    categories: [
+      { id: "brochures", label: "Brochures" },
+      { id: "visiting-cards", label: "Visiting Cards" },
+      { id: "calendars", label: "Custom Calendars" },
+    ],
+    packages: [],
+    comparisonFeatures: []
   },
 ];
 
