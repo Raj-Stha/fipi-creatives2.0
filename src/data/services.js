@@ -512,7 +512,7 @@ export const services = [
     description:
       "From brochures and visiting cards to custom calendars and stationary, we design professional print materials that leave a lasting impression.",
     icon: "PenTool",
-    heroImage: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&q=80",
     categories: [
       { id: "brochures", label: "Brochures" },
       { id: "visiting-cards", label: "Visiting Cards" },

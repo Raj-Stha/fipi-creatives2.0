@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { getServiceBySlug } from "@/data/services";
 import ServiceHero from "@/components/services/ServiceHero";
 import PackageTabs from "@/components/services/PackageTabs";
-import CustomProjectSection from "@/components/services/CustomProjectSection";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -24,11 +23,7 @@ export default async function ServicePage({ params }) {
   return (
     <>
       <ServiceHero service={service} />
-      {hasPackages ? (
-        <PackageTabs service={service} />
-      ) : (
-        <CustomProjectSection service={service} />
-      )}
+      {hasPackages && <PackageTabs service={service} />}
     </>
   );
 }

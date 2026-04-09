@@ -105,14 +105,25 @@ export default function ServiceHero({ service }) {
               transition={{ duration: 0.45, delay: 0.15 }}
               className="flex flex-wrap gap-3 mb-12"
             >
-              <a
-                href="#packages"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-200"
-                style={{ backgroundColor: PRIMARY }}
-              >
-                Explore Packages
-                <ArrowRight className="w-4 h-4" />
-              </a>
+              {service.packages && service.packages.length > 0 ? (
+                <a
+                  href="#packages"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-200"
+                  style={{ backgroundColor: PRIMARY }}
+                >
+                  Explore Packages
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              ) : (
+                <Link
+                  href="/our-works"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-200"
+                  style={{ backgroundColor: PRIMARY }}
+                >
+                  View Our Work
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              )}
               <Link
                 href="/contact-us"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold border-2 text-gray-700 hover:border-gray-400 hover:text-gray-900 transition-all duration-300"
@@ -130,7 +141,11 @@ export default function ServiceHero({ service }) {
               className="grid grid-cols-3 gap-6 border-t border-gray-100 pt-8"
             >
               {[
-                { icon: TrendIcon, label: "Packages", value: `${service.packages.length}+` },
+                { 
+                  icon: TrendIcon, 
+                  label: service.packages && service.packages.length > 0 ? "Packages" : "Solutions", 
+                  value: service.packages && service.packages.length > 0 ? `${service.packages.length}+` : "15+" 
+                },
                 { icon: Users, label: "Happy Clients", value: "200+" },
                 { icon: Star, label: "Satisfaction", value: "98%" },
               ].map((s) => (

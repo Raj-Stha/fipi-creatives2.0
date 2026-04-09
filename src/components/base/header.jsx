@@ -72,7 +72,7 @@ const navItems = [
       {
         title: "Branding & Print",
         description: "Consistent brand identity across touchpoints.",
-        image: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?w=600&q=80",
+        image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&q=80",
         href: "/services/branding-collateral",
       },
     ],
